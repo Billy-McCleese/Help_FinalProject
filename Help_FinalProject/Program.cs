@@ -1,4 +1,14 @@
+using Help_FinalProject.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddScoped<HelpContext>();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "LocalOriginsPolicy",
+        builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
+    );
+}
+);
 
 // Add services to the container.
 
@@ -15,6 +25,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("LocalOriginsPolicy");
 
 app.UseHttpsRedirection();
 
