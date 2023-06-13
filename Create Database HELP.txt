@@ -1,0 +1,29 @@
+Create Database HELP
+GO
+
+USE [HELP]
+
+Create Table Review (
+	Id int IDENTITY(1,1) Primary Key,
+	CompleteAddress nvarchar(1000),
+	PropertyAdress nvarchar(500),
+	PropertyCity nvarchar(500),
+	PropertyState nvarchar(50),
+	PropertyZip int,
+	Reporter nvarchar(100),
+	Category nvarchar(100),
+	Title nvarchar(500),
+	Detail nvarchar(3000),
+);
+
+Create Table [User] (
+	Id int IDENTITY(1,1) Primary Key,
+	[Name] nvarchar(100),
+	[Password] nvarchar(20)
+);
+
+Create Table Favorite (
+	Id int IDENTITY(1,1) Primary Key,
+	[User_Id] int Foreign Key References [user](Id),
+	CompleteAddress nvarchar(1000)
+);
