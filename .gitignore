@@ -809,4 +809,7 @@ $RECYCLE.BIN/
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
 
+# HelpContext.cs
+
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,v
