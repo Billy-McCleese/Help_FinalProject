@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Favorite } from './favorite';
 import { Review } from './review';
@@ -19,9 +19,12 @@ export class ApiService {
 
   
   //MLSAPI
-  GetRentalDataByZip(zip: number, limit: number, offset: number, sort: string): Observable<RealEstate[]>{
-    return this.http.get<RealEstate[]>(this.externalUrl + 'RealEstate' + zip + '&limit=' + limit + '&offset=' + offset + '&sort=' + sort);
-  }
+  GetRentalDataByZip(zip: number, limit: number, offset: number, sort: string): Observable<RealEstate>{
+     
+    // Make the HTTP request with options
+    return this.http.get<RealEstate>(this.url + 'RealEstate/rent-by-zipcode?zipcode=48188&limit=10&offset=1&sort=lowest_price');
+   // return this.http.get<RealEstate[]>(`${this.url}/RealEstate/rent-by-zipcode?zipcode=48188&limit=10&offset=1&sort=lowest_price`);
+  }  
 
 
   //Our API

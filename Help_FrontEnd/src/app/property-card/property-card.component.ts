@@ -12,11 +12,12 @@ import { RealEstate } from '../real-estate';
 })
 export class PropertyCardComponent implements OnInit {
 
-  favoriteList: Favorite[] = []
-  reviewList: Review[] = []
-  userList: User[] = []
+  favoriteList: Favorite[] = [];
+  reviewList: Review[] = [];
+  userList: User[] = [];
 
-  realestateList: RealEstate[] = []
+  realestateList: RealEstate[] = [];
+  realestate: RealEstate = {} as RealEstate;
 
   constructor(private apiService: ApiService){}
 
@@ -59,21 +60,20 @@ export class PropertyCardComponent implements OnInit {
     .subscribe(result => {
       this.reviewList = result;
       console.log(result);
-    })
+    });
 
     this.apiService.GetUsers()
     .subscribe(result => {
       this.userList = result;
       console.log(result);
-    })
+    });
 
     //Real Estate API call
-    this.apiService.GetRentalDataByZip(44138, 1, 1, 'lowest_price')
+    this.apiService.GetRentalDataByZip(44138, 10, 0, 'lowest_price')
     .subscribe(result => {
-      this.realestateList = result;
+      this.realestate = result;
       console.log(result);
-    })
-
+    });
   }
 
   AddFavorite(favoriteToAdd: Favorite){
