@@ -1,19 +1,23 @@
 ﻿using System.Net.Http;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 [ApiController]
 [Route("api/[controller]")]
 public class RealEstateController : ControllerBase
 {
     private readonly HttpClient _client;
+    private readonly string _apiKey;
 
-    public RealEstateController()
+    public RealEstateController(IConfiguration configuration)
     {
+        _apiKey = configuration.GetSection("Key:RealEstateAPIKey").Value;
         _client = new HttpClient();
-        _client.DefaultRequestHeaders.Add("X-RapidAPI-Key", "8e83093fd5mshda833beb7946c42p1b1ebbjsn0333ad489400");
+        _client.DefaultRequestHeaders.Add("X-RapidAPI-Key", _apiKey);
         _client.DefaultRequestHeaders.Add("X-RapidAPI-Host", "us-real-estate.p.rapidapi.com");
     }
+
 
     [HttpGet("rent")]
     public async Task<ActionResult> GetRealEstateForRent(string city, string state)
