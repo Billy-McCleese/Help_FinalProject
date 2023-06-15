@@ -11,7 +11,7 @@ namespace Help_FinalProject.Controllers
     {
 
         [HttpGet]
-        public async Task<IActionResult> GetRealEstateData(string zipcode, int offset = 0, int limit = 10, string sort = "lowest_price")
+        public async Task<IActionResult> GetRentalDataByZip(string zipcode, int offset = 1, int limit = 10, string sort = "lowest_price")
         {
             using (var client = new HttpClient())
             {
