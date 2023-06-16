@@ -26,26 +26,104 @@ export class ApiService {
    // return this.http.get<RealEstate[]>(`${this.url}/RealEstate/rent-by-zipcode?zipcode=48188&limit=10&offset=1&sort=lowest_price`);
   }  
 
+ // Favorite Methods
 
-  //Our API
-  GetFavorites(): Observable<Favorite[]>{
-    return this.http.get<Favorite[]>(this.url + 'Favorite');
-  }
+ getFavorites(): Observable<Favorite[]> {
+  const url = `${this.url}/Favorite`;
+  return this.http.get<Favorite[]>(url);
+}
 
-  AddFavorite(favoriteToAdd: Favorite): Observable<Favorite[]>{
-    return this.http.post<Favorite[]>(this.url + 'Favorite', favoriteToAdd);
-  }
+getFavorite(id: number): Observable<Favorite> {
+  const url = `${this.url}/Favorite/${id}`;
+  return this.http.get<Favorite>(url);
+}
 
-  GetReviews(): Observable<Review[]>{
-    return this.http.get<Review[]>(this.url + 'Review');
-  }
+createFavorite(favorite: Favorite): Observable<Favorite> {
+  const url = `${this.url}/Favorite`;
+  return this.http.post<Favorite>(url, favorite);
+}
 
-  AddReview(reviewToAdd: Review): Observable<Review[]>{
-    return this.http.post<Review[]>(this.url + 'Review', reviewToAdd);
-  }
+updateFavorite(id: number, favorite: Favorite): Observable<any> {
+  const url = `${this.url}/Favorite/${id}`;
+  return this.http.put(url, favorite);
+}
 
-  GetUsers(): Observable<User[]>{
-    return this.http.get<User[]>(this.url + 'User');
-  }
+deleteFavorite(id: number): Observable<any> {
+  const url = `${this.url}/Favorite/${id}`;
+  return this.http.delete(url);
+}
+ // User Methods
+
+ getUsers(): Observable<User[]> {
+  const url = `${this.url}/User`;
+  return this.http.get<User[]>(url);
+}
+
+getUser(id: number): Observable<User> {
+  const url = `${this.url}/User/${id}`;
+  return this.http.get<User>(url);
+}
+
+createUser(user: User): Observable<User> {
+  const url = `${this.url}/User`;
+  return this.http.post<User>(url, user);
+}
+
+updateUser(id: number, user: User): Observable<any> {
+  const url = `${this.url}/User/${id}`;
+  return this.http.put(url, user);
+}
+
+deleteUser(id: number): Observable<any> {
+  const url = `${this.url}/User/${id}`;
+  return this.http.delete(url);
+}
+
+// Review Methods
+
+getReviews(): Observable<Review[]> {
+  const url = `${this.url}/Review`;
+  return this.http.get<Review[]>(url);
+}
+
+getReview(id: number): Observable<Review> {
+  const url = `${this.url}/Review/${id}`;
+  return this.http.get<Review>(url);
+}
+
+createReview(review: Review): Observable<Review> {
+  const url = `${this.url}/Review`;
+  return this.http.post<Review>(url, review);
+}
+
+updateReview(id: number, review: Review): Observable<any> {
+  const url = `${this.url}/Review/${id}`;
+  return this.http.put(url, review);
+}
+
+deleteReview(id: number): Observable<any> {
+  const url = `${this.url}/Review/${id}`;
+  return this.http.delete(url);
+}
+  // //Our API
+  // GetFavorites(): Observable<Favorite[]>{
+  //   return this.http.get<Favorite[]>(this.url + 'Favorite');
+  // }
+
+  // AddFavorite(favoriteToAdd: Favorite): Observable<Favorite[]>{
+  //   return this.http.post<Favorite[]>(this.url + 'Favorite', favoriteToAdd);
+  // }
+
+  // GetReviews(): Observable<Review[]>{
+  //   return this.http.get<Review[]>(this.url + 'Review');
+  // }
+
+  // AddReview(reviewToAdd: Review): Observable<Review[]>{
+  //   return this.http.post<Review[]>(this.url + 'Review', reviewToAdd);
+  // }
+
+  // GetUsers(): Observable<User[]>{
+  //   return this.http.get<User[]>(this.url + 'User');
+  // }
 
 }
