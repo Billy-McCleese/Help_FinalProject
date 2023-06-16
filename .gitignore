@@ -811,7 +811,7 @@ $RECYCLE.BIN/
 
 # HelpContext.cs
 
-#appsettings.json
+#appsettings.Development.json
 
 
 
