@@ -36,7 +36,14 @@ export class PropertyCardComponent  implements OnInit {
     this.apiService.getUsers().subscribe(users => {
       this.userList = users;
     });
-  }
+  
+
+  this.apiService.GetRentalDataByZip(44138, 10, 0, 'lowest_price')
+  .subscribe(result => {
+    this.realestate = result;
+    console.log(result);
+  });
+}
 
   getReviews(): void {
     this.apiService.getReviews().subscribe(reviews => {
