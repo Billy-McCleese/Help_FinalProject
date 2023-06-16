@@ -29,12 +29,12 @@ export class ApiService {
  // Favorite Methods
 
  getFavorites(): Observable<Favorite[]> {
-  const url = `${this.url}/Favorite`;
+  const url = `${this.url}Favorite`;
   return this.http.get<Favorite[]>(url);
 }
 
 getFavorite(id: number): Observable<Favorite> {
-  const url = `${this.url}/Favorite/${id}`;
+  const url = `${this.url}Favorite/${id}`;
   return this.http.get<Favorite>(url);
 }
 
@@ -55,12 +55,12 @@ deleteFavorite(id: number): Observable<any> {
  // User Methods
 
  getUsers(): Observable<User[]> {
-  const url = `${this.url}/User`;
+  const url = `${this.url}User`;
   return this.http.get<User[]>(url);
 }
 
 getUser(id: number): Observable<User> {
-  const url = `${this.url}/User/${id}`;
+  const url = `${this.url}User/${id}`;
   return this.http.get<User>(url);
 }
 
@@ -82,7 +82,7 @@ deleteUser(id: number): Observable<any> {
 // Review Methods
 
 getReviews(): Observable<Review[]> {
-  const url = `${this.url}/Review`;
+  const url = `${this.url}Review`;
   return this.http.get<Review[]>(url);
 }
 
