@@ -13,6 +13,8 @@ import { CardModule } from 'primeng/card';
 import { DefaulterPipe } from './pipes/defaulter.pipe';
 import { ButtonModule } from 'primeng/button';
 import { ViewSwitcherButtonComponent } from './view-switcher-button/view-switcher-button.component';
+import { FavoriteListComponent } from './favorite-list/favorite-list.component';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { ViewSwitcherButtonComponent } from './view-switcher-button/view-switche
     RealestatemapComponent,
     DefaulterPipe,
     ViewSwitcherButtonComponent,
+    FavoriteListComponent
   ],
   imports: [
     BrowserModule,
