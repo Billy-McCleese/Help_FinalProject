@@ -1,66 +1,66 @@
 export interface RealEstate {
-  status: number
-  data: Data
+  status: number;
+  data: Data;
 }
 
 export interface Data {
-  home_search: HomeSearch
+  home_search: HomeSearch;
   // geo: Geo
 }
 
 export interface HomeSearch {
   // total: number
   // count: number
-  results: Result[]
+  results: Result[];
 }
 
 export interface Result {
-  photos: Photo[]
+  photos: Photo[] | null;
   // branding: Branding
   // other_listings: OtherListings
-  list_price_min: number
-  href: string
-  when_indexed: string
-  last_sold_price: any
-  property_id: string
+  list_price_min: number | null;
+  href: string;
+  when_indexed: string;
+  last_sold_price: any;
+  property_id: string;
   // advertisers: Advertiser[]
   // virtual_tours: any
   // seller_promotion: any
-  listing_id: string
+  listing_id: string;
   // price_reduced_amount: any
-  location: Location
-  last_update_date: string
+  location: Location;
+  last_update_date: string;
   // source: Source
-  permalink: string
-  list_date: any
-  open_houses: any
-  last_sold_date: any
-  last_price_change_date: any
-  description: Description
+  permalink: string;
+  list_date: any;
+  open_houses: any;
+  last_sold_date: any;
+  last_price_change_date: any;
+  description: Description;
   //last_price_change_amount: any
   //price_reduced_date: any
   //property_history: any
-  photo_count: number
-  list_price: any
+  photo_count: number | null;
+  list_price: any;
   // lead_attributes: LeadAttributes
-  list_price_max: number
-  tags: string[]
+  list_price_max: number | null;
+  tags: string[] | null;
   // pet_policy: PetPolicy
   // products: Products
   // suppression_flags: SuppressionFlags
-  status: string
-  flags: Flags
-  community: any
-  matterport: boolean
-  primary_photo: PrimaryPhoto
+  status: string;
+  flags: Flags;
+  community: any;
+  matterport: boolean;
+  primary_photo: PrimaryPhoto | null;
 }
 
 export interface Photo {
-  title: any
-  description: any
-  tags: any
-  href: string
-  type: any
+  title: any;
+  description: any;
+  tags: any;
+  href: string;
+  type: any;
 }
 
 // export interface Branding {}
@@ -116,9 +116,9 @@ export interface Photo {
 
 export interface Location {
   // county: County
-  address: Address
-  search_areas: SearchArea[]
-  neighborhoods: any
+  address: Address;
+  search_areas: SearchArea[];
+  neighborhoods: any;
 }
 
 // export interface County {
@@ -129,28 +129,28 @@ export interface Location {
 
 export interface Address {
   //street_post_direction: any
-  street_number: string
-  state: string
+  street_number: string;
+  state: string;
   //street_suffix: string
-  state_code: string
+  state_code: string;
   //unit: any
-  postal_code: string
+  postal_code: string;
   //street_direction: any
-  street_name: string
-  country: string
-  // coordinate: Coordinate
-  line: string
-  city: string
+  street_name: string;
+  country: string;
+  coordinate?: Coordinate;
+  line: string;
+  city: string;
 }
 
-// export interface Coordinate {
-//   lon: number
-//   lat: number
-// }
+export interface Coordinate {
+  lon: number;
+  lat: number;
+}
 
 export interface SearchArea {
-  city: string
-  state_code: string
+  city: string;
+  state_code: string;
 }
 
 // export interface Source {
@@ -164,29 +164,29 @@ export interface SearchArea {
 // }
 
 export interface Description {
-  garage_max: any
-  sqft_min: number
-  baths_partial_calc: any
-  baths_1qtr: any
-  beds_max: number
-  lot_sqft: any
-  sub_type: any
-  garage: any
-  baths_3qtr: any
-  garage_min: any
-  beds_min: number
-  baths_min: number
-  name: string
-  baths_half: any
-  sqft: any
-  year_built: any
-  baths: any
-  baths_full: any
-  sqft_max: number
-  baths_max: number
-  baths_full_calc: any
-  beds: any
-  type: string
+  garage_max: any | null;
+  sqft_min: number | null;
+  baths_partial_calc: any | null;
+  baths_1qtr: any | null;
+  beds_max: number | null;
+  lot_sqft: any | null;
+  sub_type: any | null;
+  garage: any;
+  baths_3qtr: any | null;
+  garage_min: any | null;
+  beds_min: number | null;
+  baths_min: number | null;
+  name: string | null;
+  baths_half: any | null;
+  sqft: any | null;
+  year_built: any | null;
+  baths: any | null;
+  baths_full: any | null;
+  sqft_max: number | null;
+  baths_max: number | null;
+  baths_full_calc: any | null;
+  beds: any | null;
+  type: string | null;
 }
 
 // export interface LeadAttributes {
@@ -219,14 +219,14 @@ export interface Flags {
   // is_deal_available: any
   // is_senior_community: any
   // is_new_listing: any
-  is_for_rent: boolean
+  is_for_rent: boolean;
   // is_garage_present: any
 }
 
 export interface PrimaryPhoto {
-  href: string
-  type: any
-  description: any
+  href: string;
+  type: any;
+  description: any;
 }
 
 // export interface Geo {
