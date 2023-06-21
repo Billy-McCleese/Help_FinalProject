@@ -1,0 +1,57 @@
+.map-container {
+  width: 95vw;
+  height: 100vh;
+  position: relative;
+  background-color: green;
+}
+
+@media (min-width: 992px) {
+  .map-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: green;
+  }
+}
+
+.maps {
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  left: 0 !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.info-window {
+  max-width: 300px;
+  overflow: hidden;
+}
+
+.house-specs {
+  font-size: 12px;
+  line-height: 1.2rem;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.house-thumbnail {
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 6rem;
+}
+
+ul,
+li {
+  border: 0;
+}
+
+::ng-deep {
+  .gm-style-iw-d button {
+    display: none !important;
+  }
+}

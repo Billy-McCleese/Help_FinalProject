@@ -1,0 +1,14 @@
+.house-specs {
+  font-size: 14px;
+}
+
+.property-thumbnail {
+  height: 177px;
+  width: 100%;
+}
+
+.p-card-content {
+  ::ng-deep {
+    padding-top: 0 !important;
+  }
+}
