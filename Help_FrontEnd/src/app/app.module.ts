@@ -7,6 +7,7 @@ import { PropertyCardComponent } from './property-card/property-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PropertylistComponent } from './propertylist/propertylist.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FavoriteListComponent } from './favorite-list/favorite-list.component';
 
 
 @NgModule({
@@ -15,7 +16,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     PropertyCardComponent,
     PropertylistComponent,
     PropertyCardComponent,
-    NavbarComponent
+    NavbarComponent,
+    FavoriteListComponent
+
   ],
   imports: [
     BrowserModule,
