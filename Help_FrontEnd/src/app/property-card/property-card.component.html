@@ -1,47 +1,79 @@
-<div id="propertyDetails">
-    <h2>Property Details</h2>
-    <ul>
-      <li *ngFor="let result of realestate.data.home_search.results">
-       <strong>Address:</strong> {{ result.location.address.line }} <br>
-       <strong>Street Number:</strong> {{ result.location.address.street_number }} <br>
-       <strong>Street Name:</strong> {{ result.location.address.street_name }} <br>
-       <strong>City:</strong> {{ result.location.address.city }} <br>
-       <strong>State:</strong> {{ result.location.address.state }} <br>
-       <strong>Postal Code:</strong> {{ result.location.address.postal_code }} <br>
-       <strong>Country:</strong> {{ result.location.address.country }} <br>
-        <strong>Status:</strong> {{ result.status }} <br>
-        <strong>List Price Min:</strong> {{ result.list_price_min }} <br>
-        <!-- <strong>Href:</strong> {{ result.href }} <br> -->
-        <img src="{{ result.href }}" alt="{{ result.status }}" width="300">
-        <strong>When Indexed:</strong> {{ result.when_indexed }} <br>
-        <strong>Last Sold Price:</strong> {{ result.last_sold_price }} <br>
-        <strong>Property ID:</strong> {{ result.property_id }} <br>
-        <strong>Listing ID:</strong> {{ result.listing_id }} <br>
-        <strong>Last Update Date:</strong> {{ result.last_update_date }} <br>
-        <strong>Permalink:</strong> {{ result.permalink }} <br>
-        <strong>List Date:</strong> {{ result.list_date }} <br>
-        <strong>Last Sold Date:</strong> {{ result.last_sold_date }} <br>
-        <strong>Last Price Change Date:</strong> {{ result.last_price_change_date }} <br>
-        <strong>Description:</strong> {{ result.description.name }} <br>
-        <strong>Photo Count:</strong> {{ result.photo_count }} <br>
-        <strong>List Price:</strong> {{ result.list_price }} <br>
-        <strong>List Price Max:</strong> {{ result.list_price_max }} <br>
-        <strong>Tags:</strong> {{ result.tags }} <br>
-        <strong>Community:</strong> {{ result.community }} <br>
-        <strong>Matterport:</strong> {{ result.matterport }} <br>
-        <!-- <strong>Primary Photo Href:</strong> {{ result.primary_photo.href }} <br> -->
-        <img src="{{ result.primary_photo.href }}" alt="{{ result.listing_id }}" width="300"> <br>
-        
-        <ul>
-          <li *ngFor="let photo of result.photos">
-            <strong>Photo Title:</strong> {{ photo.title }} <br>
-            <strong>Photo Description:</strong> {{ photo.description }} <br>
-            <img src="{{ photo.href }}" alt="{{ photo.title }}" width="300">
-            <strong>Photo Type:</strong> {{ photo.type }} <br>
-          </li>
-        </ul>
-        
-        <hr>
-      </li>
-    </ul>
-  </div>
+<div class="w-auto h-auto property-card">
+  <p-card
+    [header]="'$ ' + getSanitizedValue(propertyDetail.list_price)"
+    [subheader]="'# ' + getPropertyId()"
+    [style]="{ width: '100%' }"
+  >
+    <ng-template pTemplate="header">
+      <img
+        alt="property thumbnail"
+        class="property-thumbnail"
+        [src]="getHouseThumbnail()"
+      />
+    </ng-template>
+    <div>
+      <div class="d-flex flex-column">
+        <div class="house-specs">
+          {{ getHouseSpecs() }}
+        </div>
+        <div class="house-specs mt-2">
+          {{ getHouseAddress() }}
+        </div>
+      </div>
+    </div>
+  </p-card>
+  <!-- 
+  <ul>
+    <li *ngFor="let result of realestate.data.home_search.results">
+      <strong>Address:</strong> {{ result.location.address.line }} <br />
+      <strong>Street Number:</strong>
+      {{ result.location.address.street_number }} <br />
+      <strong>Street Name:</strong> {{ result.location.address.street_name }}
+      <br />
+      <strong>City:</strong> {{ result.location.address.city }} <br />
+      <strong>State:</strong> {{ result.location.address.state }} <br />
+      <strong>Postal Code:</strong> {{ result.location.address.postal_code }}
+      <br />
+      <strong>Country:</strong> {{ result.location.address.country }} <br />
+      <strong>Status:</strong> {{ result.status }} <br />
+      <strong>List Price Min:</strong> {{ result.list_price_min }} <br />
+      <strong>Href:</strong> {{ result.href }} <br>
+      <img src="{{ result.href }}" alt="{{ result.status }}" width="300" />
+      <strong>When Indexed:</strong> {{ result.when_indexed }} <br />
+      <strong>Last Sold Price:</strong> {{ result.last_sold_price }} <br />
+      <strong>Property ID:</strong> {{ result.property_id }} <br />
+      <strong>Listing ID:</strong> {{ result.listing_id }} <br />
+      <strong>Last Update Date:</strong> {{ result.last_update_date }} <br />
+      <strong>Permalink:</strong> {{ result.permalink }} <br />
+      <strong>List Date:</strong> {{ result.list_date }} <br />
+      <strong>Last Sold Date:</strong> {{ result.last_sold_date }} <br />
+      <strong>Last Price Change Date:</strong>
+      {{ result.last_price_change_date }} <br />
+      <strong>Description:</strong> {{ result.description.name }} <br />
+      <strong>Photo Count:</strong> {{ result.photo_count }} <br />
+      <strong>List Price:</strong> {{ result.list_price }} <br />
+      <strong>List Price Max:</strong> {{ result.list_price_max }} <br />
+      <strong>Tags:</strong> {{ result.tags }} <br />
+      <strong>Community:</strong> {{ result.community }} <br />
+      <strong>Matterport:</strong> {{ result.matterport }} <br />
+      <strong>Primary Photo Href:</strong> {{ result.primary_photo.href }} <br>
+      <img
+        src="{{ result.primary_photo?.href }}"
+        alt="{{ result.listing_id }}"
+        width="300"
+      />
+      <br />
+
+      <ul>
+        <li *ngFor="let photo of result.photos">
+          <strong>Photo Title:</strong> {{ photo.title }} <br />
+          <strong>Photo Description:</strong> {{ photo.description }} <br />
+          <img src="{{ photo.href }}" alt="{{ photo.title }}" width="300" />
+          <strong>Photo Type:</strong> {{ photo.type }} <br />
+        </li>
+      </ul>
+
+      <hr />
+    </li>
+  </ul> -->
+</div>
