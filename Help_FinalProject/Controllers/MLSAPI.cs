@@ -2,6 +2,7 @@
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Help_FinalProject;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -12,11 +13,12 @@ public class RealEstateController : ControllerBase
 
     public RealEstateController(IConfiguration configuration)
     {
-        _apiKey = configuration.GetSection("Key:RealEstateAPIKey").Value;
+        _apiKey = Secret.RealEstateAPIKey;
         _client = new HttpClient();
         _client.DefaultRequestHeaders.Add("X-RapidAPI-Key", _apiKey);
         _client.DefaultRequestHeaders.Add("X-RapidAPI-Host", "us-real-estate.p.rapidapi.com");
     }
+
 
 
     [HttpGet("rent")]
