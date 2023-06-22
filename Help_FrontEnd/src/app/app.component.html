@@ -23,7 +23,9 @@
           [properties]="realestate"
           *ngSwitchCase="uiView.map"
         ></app-realestatemap>
-        <app-realestatemap (markerClick)="handleMarkerClick($event)"></app-realestatemap>
+        <app-realestatemap
+          (markerClick)="handleMarkerClick($event)"
+        ></app-realestatemap>
         <app-propertylist
           [properties]="realestate"
           *ngSwitchCase="uiView.list"
