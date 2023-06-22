@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { ApiService } from '../api.service';
 import { Favorite } from '../favorite';
 import { Review } from '../review';
