@@ -30,6 +30,11 @@
           [properties]="realestate"
           *ngSwitchCase="uiView.map"
         ></app-realestatemap>
+
+        <app-realestatemap
+          (markerClick)="handleMarkerClick($event)"
+        ></app-realestatemap>
+
         <app-propertylist
           (setSelectedProperty)="setSelectedProperty($event)"
           [properties]="realestate"
