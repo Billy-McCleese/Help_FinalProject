@@ -1,3 +1,42 @@
 <app-navbar></app-navbar>
 
-<app-review-form></app-review-form>
+<ng-container *ngIf="!getResults().length; else page">
+  <h5>Loading...</h5>
+</ng-container>
+
+<!-- Static views -->
+<ng-template #page>
+  <div class="container-fluid h-100 w-100 d-flex">
+    <div class="row g-0 w-100 d-lg-flex d-none">
+      <div class="col-lg-6 col-0 d-lg-block d-none prop-map">
+        <app-realestatemap [properties]="realestate"></app-realestatemap>
+      </div>
+      <div class="col-lg-6 col-12 prop-list">
+        <app-propertylist [properties]="realestate"></app-propertylist>
+      </div>
+    </div>
+
+    <!-- Switchable views -->
+    <div class="h-100 w-100 d-lg-none d-flex">
+      <ng-container [ngSwitch]="currentView">
+        <app-realestatemap
+          [properties]="realestate"
+          *ngSwitchCase="uiView.map"
+        ></app-realestatemap>
+        <app-realestatemap
+          (markerClick)="handleMarkerClick($event)"
+        ></app-realestatemap>
+        <app-propertylist
+          [properties]="realestate"
+          *ngSwitchCase="uiView.list"
+        ></app-propertylist>
+      </ng-container>
+    </div>
+  </div>
+
+  <app-view-switcher-button
+    (updateView)="switchViews($event)"
+    [currentView]="currentView"
+  ></app-view-switcher-button>
+</ng-template>
+<!-- <app-property-card></app-property-card> -->
