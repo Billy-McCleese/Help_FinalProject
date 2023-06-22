@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { RealEstate, Result } from './real-estate';
 import { ApiService } from './api.service';
 import { UIView } from './ui-view.enum';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { PropertyDetailsModalComponent } from './property-details-modal/property-details-modal.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +16,10 @@ export class AppComponent {
   currentView: UIView = UIView.list;
   uiView = UIView;
 
-  constructor(private apiService: ApiService) {}
+  selectedProperty?: Result;
+  showModal: boolean = false;
+
+  constructor(private apiService: ApiService, private modalService: NgbModal) {}
 
   ngOnInit(): void {
     this.getGetRentalDataByZip();
@@ -25,7 +30,6 @@ export class AppComponent {
       .GetRentalDataByZip(44138, 10, 0, 'lowest_price')
       .subscribe((result: RealEstate) => {
         this.realestate = result;
-        console.log(this.realestate);
       });
   }
 
@@ -37,8 +41,40 @@ export class AppComponent {
     console.log(to);
     this.currentView = to;
   }
-  handleMarkerClick(property: Result) {
-    // Perform any actions you want with the clicked property
-    console.log('Clicked property:', property);
-  }  
+
+  public setSelectedProperty(property: any) {
+    console.log('->', property);
+    this.selectedProperty = property;
+    if (property) {
+      this.popModal();
+    }
+
+    const isDeviceMidSize = window.innerWidth <= 768;
+
+    const modalRef = this.modalService.open(PropertyDetailsModalComponent, {
+      centered: false,
+      fullscreen: isDeviceMidSize,
+      size: isDeviceMidSize ? undefined : 'xl',
+      scrollable: isDeviceMidSize,
+    });
+    modalRef.componentInstance.propertyDetail = this.selectedProperty;
+    modalRef.componentInstance.onModalClose = this.closeModal;
+    modalRef.result.then(
+      (result) => {
+        this.closeModal();
+      },
+      (reason) => {
+        this.closeModal();
+      }
+    );
+  }
+
+  private popModal() {
+    this.showModal = true;
+  }
+
+  public closeModal() {
+    this.showModal = false;
+    this.selectedProperty = undefined;
+  }
 }

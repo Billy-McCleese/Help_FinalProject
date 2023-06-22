@@ -13,6 +13,13 @@ import { CardModule } from 'primeng/card';
 import { DefaulterPipe } from './pipes/defaulter.pipe';
 import { ButtonModule } from 'primeng/button';
 import { ViewSwitcherButtonComponent } from './view-switcher-button/view-switcher-button.component';
+import { DialogModule } from 'primeng/dialog';
+import { PropertyDetailsModalComponent } from './property-details-modal/property-details-modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TabViewModule } from 'primeng/tabview';
+import { ChipModule } from 'primeng/chip';
+import { GalleriaModule } from 'primeng/galleria';
 
 @NgModule({
   declarations: [
@@ -24,6 +31,7 @@ import { ViewSwitcherButtonComponent } from './view-switcher-button/view-switche
     RealestatemapComponent,
     DefaulterPipe,
     ViewSwitcherButtonComponent,
+    PropertyDetailsModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +40,12 @@ import { ViewSwitcherButtonComponent } from './view-switcher-button/view-switche
     GoogleMapsModule,
     CardModule,
     ButtonModule,
+    DialogModule,
+    BrowserAnimationsModule,
+    NgbModule,
+    TabViewModule,
+    ChipModule,
+    GalleriaModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

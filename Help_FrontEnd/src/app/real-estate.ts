@@ -27,7 +27,7 @@ export interface Result {
   // virtual_tours: any
   // seller_promotion: any
   listing_id: string;
-  // price_reduced_amount: any
+  price_reduced_amount: any;
   location: Location;
   last_update_date: string;
   // source: Source
@@ -216,7 +216,7 @@ export interface Description {
 // }
 
 export interface Flags {
-  // is_deal_available: any
+  is_deal_available: any;
   // is_senior_community: any
   // is_new_listing: any
   is_for_rent: boolean;

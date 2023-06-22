@@ -4,4 +4,10 @@
 
 body {
   font-family: var(--font-family);
+  background-color: palevioletred;
+}
+
+.modal-dialog {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
