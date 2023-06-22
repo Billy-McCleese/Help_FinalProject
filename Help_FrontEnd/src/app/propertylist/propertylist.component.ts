@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ApiService } from '../api.service';
 import { RealEstate, Result } from '../real-estate';
 
@@ -9,6 +9,8 @@ import { RealEstate, Result } from '../real-estate';
 })
 export class PropertylistComponent implements OnInit {
   @Input('properties') properties: RealEstate = {} as RealEstate;
+  @Output('setSelectedProperty') setSelectedProperty =
+    new EventEmitter<Result>();
   realestateList: RealEstate[] = [];
   realestate: RealEstate = {} as RealEstate;
 
@@ -17,5 +19,9 @@ export class PropertylistComponent implements OnInit {
 
   getResults() {
     return this.properties?.data?.home_search?.results ?? [];
+  }
+
+  selectProperty(property: Result) {
+    this.setSelectedProperty.emit(property);
   }
 }

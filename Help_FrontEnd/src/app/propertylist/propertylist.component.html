@@ -6,9 +6,11 @@
         class="col-6 col-xxl-6 mb-3"
         *ngFor="let propertyDetail of getResults()"
       >
-        <app-property-card
-          [propertyDetail]="propertyDetail"
-        ></app-property-card>
+        <div (click)="selectProperty(propertyDetail)" style="cursor: pointer">
+          <app-property-card
+            [propertyDetail]="propertyDetail"
+          ></app-property-card>
+        </div>
       </div>
     </div>
   </div>

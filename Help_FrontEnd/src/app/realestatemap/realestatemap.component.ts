@@ -1,4 +1,11 @@
-import { Component, Input, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { MapAnchorPoint, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { RealEstate, Result } from '../real-estate';
 import { DefaulterPipe } from '../pipes/defaulter.pipe';
@@ -9,10 +16,9 @@ import { DefaulterPipe } from '../pipes/defaulter.pipe';
   styleUrls: ['./realestatemap.component.css'],
 })
 export class RealestatemapComponent implements OnInit {
-  @Output() markerClick: EventEmitter<Result> = new EventEmitter<Result>();
-
   @Input('properties') properties: RealEstate = {} as RealEstate;
   @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow = {} as MapInfoWindow;
+  @Output() setSelectedProperty = new EventEmitter<Result>();
 
   public propertyInfoWindowDetail?: Result;
   public markers: { lat: number; lng: number }[] = [];
@@ -25,11 +31,6 @@ export class RealestatemapComponent implements OnInit {
     this.markers = [];
     this.setPropertyMarkers();
   }
-  //new code
-  
-
-
-
 
   setPropertyMarkers() {
     this.properties.data?.home_search?.results?.forEach((result: Result) => {
@@ -52,7 +53,7 @@ export class RealestatemapComponent implements OnInit {
     }
   }
 
-  public getPropertyCoordinates(property: Result) {
+  private getPropertyCoordinates(property: Result) {
     if (
       property?.location?.address?.coordinate?.lat &&
       property?.location?.address?.coordinate?.lon
@@ -139,17 +140,27 @@ export class RealestatemapComponent implements OnInit {
     if (crds) {
       this.setPropertyInfoWindowDetail(crds.lat(), crds.lng());
       setTimeout(() => this.infoWindow?.open(marker));
-      const property = this.getPropertyByCoordinates(crds.lat(), crds.lng());
-      if (property) {
-        this.markerClick.emit(property);
-      }
     } else {
       alert('No property to rent here');
     }
   }
- 
 
   closeInfoWindow() {
     this.infoWindow?.close();
+  }
+
+  setSelectedPropertyForPopup(marker: MapMarker) {
+    const crds = marker.getPosition();
+    if (crds) {
+      const propertyToSet = this.getPropertyByCoordinates(
+        crds.lat(),
+        crds.lng()
+      );
+      if (propertyToSet) {
+        this.setSelectedProperty.emit(propertyToSet);
+        return;
+      }
+    }
+    alert('Unable to open this property');
   }
 }
