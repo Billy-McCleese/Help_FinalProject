@@ -1,14 +1,14 @@
 export interface Review {
     Id: number,
-    CompleteAddress: string,
-    PropertyAdress: string,
-    PropertyCity: string,
-    PropertyState: string,
-    PropertyZip: number,
-    Reporter: string,
-    Category: string,
-    Title: string,
-    Detail: string
+    completeAddress: string,
+    propertyAdress: string,
+    propertyCity: string,
+    propertyState: string,
+    propertyZip: number,
+    reporter: string,
+    category: string,
+    title: string,
+    detail: string
     
 
     
