@@ -20,7 +20,8 @@ namespace Help_FinalProject.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Favorite>>> GetFavorites()
         {
-            return await _context.Favorites.ToListAsync();
+            var favorites = await _context.Favorites.ToListAsync();
+            return favorites;
         }
 
         // GET: api/Favorite/id

@@ -16,6 +16,8 @@ export class ApiService {
   private readonly externalUrl =
     'https://us-real-estate.p.rapidapi.com/v2/for-rent-by-zipcode?zipcode=';
 
+    
+
   //MLSAPI
   GetRentalDataByZip(
     zip: number,
@@ -3448,8 +3450,7 @@ export class ApiService {
   // Favorite Methods
 
   getFavorites(): Observable<Favorite[]> {
-    const url = `${this.url}Favorite`;
-    return this.http.get<Favorite[]>(url);
+    return this.http.get<Favorite[]>(`${this.url}/favorites`);
   }
 
   getFavorite(id: number): Observable<Favorite> {

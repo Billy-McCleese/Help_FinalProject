@@ -25,6 +25,7 @@ import { GalleriaModule } from 'primeng/galleria';
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
 import { ReviewFormComponent } from './review-form/review-form.component'; 
 import { ReactiveFormsModule } from '@angular/forms';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 
 
@@ -38,13 +39,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     RealestatemapComponent,
     DefaulterPipe,
     ViewSwitcherButtonComponent,
-
     PropertyDetailsModalComponent,
     ReviewFormComponent,
-    
-    
-
-    FavoriteListComponent
+    FavoriteListComponent,
+    FavoritesComponent
 
   ],
   imports: [
