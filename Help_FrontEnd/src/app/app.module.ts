@@ -21,8 +21,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TabViewModule } from 'primeng/tabview';
 import { ChipModule } from 'primeng/chip';
 import { GalleriaModule } from 'primeng/galleria';
-=======
+
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
+import { ReviewFormComponent } from './review-form/review-form.component'; 
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -38,6 +40,9 @@ import { FavoriteListComponent } from './favorite-list/favorite-list.component';
     ViewSwitcherButtonComponent,
 
     PropertyDetailsModalComponent,
+    ReviewFormComponent,
+    
+    
 
     FavoriteListComponent
 
@@ -55,6 +60,7 @@ import { FavoriteListComponent } from './favorite-list/favorite-list.component';
     TabViewModule,
     ChipModule,
     GalleriaModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
