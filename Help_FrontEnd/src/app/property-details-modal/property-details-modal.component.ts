@@ -3,6 +3,8 @@ import { Photo, Result } from '../real-estate';
 import { DefaulterPipe } from '../pipes/defaulter.pipe';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Review } from '../review';
+import { ApiService } from '../api.service';
+
 
 @Component({
   selector: 'app-property-details-modal',
@@ -13,30 +15,30 @@ export class PropertyDetailsModalComponent implements OnInit {
   @Input() visible = true;
   @Input() propertyDetail?: Result;
   onModalClose?: () => void; 
-  reviews: any[];
-  
+  reviewList: Review[] = [];
 
-  constructor(public modal: NgbActiveModal) {
+  constructor(public modal: NgbActiveModal, private apiService: ApiService) {
     //this.propertyDetail?= '123';
-    this.reviews = [
-      // Sample review objects
-      {
-        address: '123 Main St',
-        city: 'City',
-        state: 'State',
-        zip: '12345',
-        Reporter: 'John Doe',
-        category: 'Category',
-        title: 'Review Title',
-        Detail: 'Review Detail'
-      },
-      // More review objects...
-    ];
+    // this.reviews = [
+    //   // Sample review objects
+    //   {
+    //     address: '123 Main St',
+    //     city: 'City',
+    //     state: 'State',
+    //     zip: '12345',
+    //     Reporter: 'John Doe',
+    //     category: 'Category',
+    //     title: 'Review Title',
+    //     Detail: 'Review Detail'
+    //   },
+    //   // More review objects...
+    // ];
   }
   
 
   ngOnInit(): void {
     console.log(this.propertyDetail);
+    this.getReviews();
   }
 
   getHouseImages() {
@@ -183,4 +185,14 @@ export class PropertyDetailsModalComponent implements OnInit {
     if (this.onModalClose) this.onModalClose();
     this.modal.close();
   }
+
+  getReviews(): void {
+    this.apiService.getReviews().subscribe((reviews) => {
+      this.reviewList = reviews;
+      console.log(reviews)
+      console.log(this.reviewList)
+    });
+  }
+
+
 }
