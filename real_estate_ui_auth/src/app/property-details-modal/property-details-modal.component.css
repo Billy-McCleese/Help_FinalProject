@@ -1,0 +1,156 @@
+.image-gallery {
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+@media (min-width: 769px) {
+  .image-gallery {
+    max-height: 95vh;
+  }
+}
+
+.mobile-image-gallery img {
+  height: 20rem;
+}
+
+.mobile-image-gallery .img-wrapper {
+  height: 20rem;
+  width: 100%;
+  display: flex;
+}
+
+.property-price {
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 35px;
+  margin: 0px;
+}
+.price-cut {
+  color: rgb(163, 0, 11);
+  font-weight: 700;
+  font-size: 16px;
+}
+.list-group-item {
+  padding: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border: 0;
+}
+
+.list-group-item.header-list {
+  padding-left: 0;
+  padding-right: 0;
+  border: 0;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+.address {
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0px;
+}
+
+.property-status .indicator-active::before {
+  border-radius: 50%;
+  content: "";
+  height: 1em;
+  width: 1em;
+  display: block;
+  background-color: rgb(255, 90, 80);
+}
+
+.property-status .indicator-inactive::before {
+  border-radius: 50%;
+  content: "";
+  height: 1em;
+  width: 1em;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.property-status .status-text {
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0px;
+}
+
+.description {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0px;
+}
+
+.overview {
+  white-space: pre-wrap;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0px;
+}
+
+.overview h4 {
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  margin: 24px 0px 16px;
+}
+
+.modal-body {
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 1%;
+  right: 4%;
+  z-index: 4;
+}
+.review{
+  white-space: pre-wrap;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0px;
+}
+
+.review h4 {
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  margin: 24px 0px 16px;
+}
+

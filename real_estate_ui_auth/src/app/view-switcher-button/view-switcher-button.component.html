@@ -1,0 +1,19 @@
+<div class="view-switcher-button-wrapper d-flex d-lg-none">
+  <ng-container [ngSwitch]="currentView">
+    <p-button
+      *ngSwitchCase="uiView.list"
+      icon="pi pi-map"
+      label="Maps"
+      styleClass="p-button-raised p-button-help"
+      (click)="switchView(uiView.map)"
+    ></p-button>
+
+    <p-button
+      *ngSwitchCase="uiView.map"
+      icon="pi pi-list"
+      label="List"
+      styleClass="p-button-raised p-button-help"
+      (click)="switchView(uiView.list)"
+    ></p-button>
+  </ng-container>
+</div>
