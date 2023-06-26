@@ -3450,7 +3450,7 @@ export class ApiService {
   // Favorite Methods
 
   getFavorites(): Observable<Favorite[]> {
-    return this.http.get<Favorite[]>(`${this.url}/favorites`);
+    return this.http.get<Favorite[]>(`${this.url}Favorite`);
   }
 
   getFavorite(id: number): Observable<Favorite> {
