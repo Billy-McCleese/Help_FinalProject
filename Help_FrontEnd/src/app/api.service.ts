@@ -3511,7 +3511,7 @@ export class ApiService {
   }
 
   createReview(review: Review): Observable<Review> {
-    const url = `${this.url}/Review`;
+    const url = `${this.url}Review`;
     return this.http.post<Review>(url, review);
   }
 

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Photo, Result } from '../real-estate';
 import { DefaulterPipe } from '../pipes/defaulter.pipe';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';

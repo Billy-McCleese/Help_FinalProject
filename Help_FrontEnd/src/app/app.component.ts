@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { RealEstate, Result } from './real-estate';
 import { ApiService } from './api.service';
 import { UIView } from './ui-view.enum';
@@ -15,7 +15,7 @@ export class AppComponent {
   realestate: RealEstate = {} as RealEstate;
   currentView: UIView = UIView.list;
   uiView = UIView;
-
+  @Output() selectedPropertyEmitter = new EventEmitter<any>();
   selectedProperty?: Result;
   showModal: boolean = false;
 
@@ -43,9 +43,9 @@ export class AppComponent {
   }
 
   public setSelectedProperty(property: any) {
-    console.log('->', property);
     this.selectedProperty = property;
     if (property) {
+      this.selectedPropertyEmitter.emit(property);
       this.popModal();
     }
 
