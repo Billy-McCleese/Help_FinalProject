@@ -8,6 +8,21 @@
     <h5 class="text-primary" style="font-weight: 300">HRE</h5>
   </div>
 </div>
+<!-- ... -->
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="addFavorite({id: 0, userId: 1, completeAddress: getHouseAddress() })">
+    Add to Favorites
+  </button>
+  <button type="button" class="btn btn-danger" (click)="deleteFavorite(getHouseAddress())">
+    Remove Favorite
+  </button>
+  <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+</div>
+
+<!-- ... -->
+
+
 <div class="modal-body h-100">
   <div class="close-button d-lg-block d-none">
     <p-button
@@ -146,11 +161,20 @@
                 </p>
               </p-tabPanel>
              
-              <p-tabPanel header = "Review">
+              <p-tabPanel header = "Reviews">
               
 
-  
-  <h3>Rate the Property:</h3>
+
+
+
+
+
+
+
+
+
+
+  <!-- <h3>Rate the Property:</h3>
   <div>
     <form id="rating-form">
       <label class="star" for="star5" onclick="rateProperty(5)" onmouseover="highlightStars(5)" onmouseout="resetStars()">&#9733;</label>
@@ -169,8 +193,18 @@
       <input type="radio" id="star1" name="rating" value="1" style="display: none;">
     </form>
     <span id="rating-message"></span>
-  </div>
+  </div> -->
   
+  <ng-container *ngIf="reviewList.length">
+    <ng-container *ngFor="let item of reviewList">
+      <div *ngIf="item.completeAddress == propertyDetail.permalink">
+        <h3>{{item.title}}</h3>
+        <p>{{item.detail}}</p>
+        <h6>-{{item.reporter}}</h6>
+      </div>
+    </ng-container>
+  </ng-container>
+
   <script>
     let currentRating = 0;
   

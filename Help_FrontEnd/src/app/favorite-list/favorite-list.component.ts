@@ -30,7 +30,7 @@ export class FavoriteListComponent implements OnInit {
   deleteFavorite(id: number): void {
     this.favoriteService.deleteFavorite(id).subscribe(
       () => {
-        // Optional: Handle success (e.g., display a message)
+        
         this.loadFavorites(); // Refresh the list after deletion
       },
       (error) => {
@@ -38,4 +38,17 @@ export class FavoriteListComponent implements OnInit {
       }
     );
   }
+
+  createFavorite(favorite: Favorite): void {
+    this.favoriteService.createFavorite(favorite).subscribe(
+      () => {
+        
+        this.loadFavorites(); // Refresh the list after saving
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+  
 }

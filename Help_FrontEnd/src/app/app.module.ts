@@ -20,8 +20,9 @@ import { TabViewModule } from 'primeng/tabview';
 import { ChipModule } from 'primeng/chip';
 import { GalleriaModule } from 'primeng/galleria';
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
-import { ReviewFormComponent } from './review-form/review-form.component';
-
+import { ReviewFormComponent } from './review-form/review-form.component'; 
+import { ReactiveFormsModule } from '@angular/forms';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 
 
@@ -37,7 +38,10 @@ import { ReviewFormComponent } from './review-form/review-form.component';
     ViewSwitcherButtonComponent,
     PropertyDetailsModalComponent,
     FavoriteListComponent,
-    ReviewFormComponent
+    ReviewFormComponent,
+    FavoriteListComponent,
+    FavoritesComponent
+
 
   ],
   imports: [
@@ -53,6 +57,7 @@ import { ReviewFormComponent } from './review-form/review-form.component';
     TabViewModule,
     ChipModule,
     GalleriaModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

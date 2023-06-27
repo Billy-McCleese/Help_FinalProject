@@ -7,7 +7,7 @@ import { Favorite } from './favorite';
   providedIn: 'root'
 })
 export class FavoriteService {
-  private apiUrl = 'api/Favorite'; 
+  private apiUrl = 'api/favorite'; 
 
   constructor(private http: HttpClient) { }
 
