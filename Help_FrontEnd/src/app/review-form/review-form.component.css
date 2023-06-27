@@ -1,0 +1,14 @@
+.star {
+    font-size: 36px;
+    /* Adjust the font size to make the stars bigger */
+    color: gray;
+    /* Initial color of the star icons */
+    transition: color 0.3s;
+    /* Transition effect duration */
+}
+
+.star.active,
+.star:hover {
+    color: gold;
+    /* Color to change to when active or hovered */
+}
