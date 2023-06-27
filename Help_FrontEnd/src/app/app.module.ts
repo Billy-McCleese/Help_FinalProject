@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PropertyCardComponent } from './property-card/property-card.component';
@@ -25,7 +24,9 @@ import { AuthComponent } from './auth/auth.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
-
+import { FavoriteListComponent } from './favorite-list/favorite-list.component';
+import { ReviewFormComponent } from './review-form/review-form.component'; 
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,10 @@ import { LogoutComponent } from './logout/logout.component';
     PropertyDetailsModalComponent,
     DashboardComponent,
     AuthComponent,
-    LogoutComponent
+    LogoutComponent,
+     ReviewFormComponent,
+    FavoriteListComponent,
+    FavoritesComponent
     
   ],
   imports: [
