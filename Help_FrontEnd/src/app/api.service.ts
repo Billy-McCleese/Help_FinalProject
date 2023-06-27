@@ -3454,22 +3454,22 @@ export class ApiService {
   }
 
   getFavorite(id: number): Observable<Favorite> {
-    const url = `${this.url}Favorite/${id}`;
+    const url = `${this.url}Favorite${id}`;
     return this.http.get<Favorite>(url);
   }
 
   createFavorite(favorite: Favorite): Observable<Favorite> {
-    const url = `${this.url}/Favorite`;
+    const url = `${this.url}Favorite`;
     return this.http.post<Favorite>(url, favorite);
   }
 
   updateFavorite(id: number, favorite: Favorite): Observable<any> {
-    const url = `${this.url}/Favorite/${id}`;
+    const url = `${this.url}Favorite${id}`;
     return this.http.put(url, favorite);
   }
 
-  deleteFavorite(id: number): Observable<any> {
-    const url = `${this.url}/Favorite/${id}`;
+  deleteFavorite(CompleteAddress: string): Observable<any> {
+    const url = `${this.url}Favorite/${CompleteAddress}`;
     return this.http.delete(url);
   }
   // User Methods

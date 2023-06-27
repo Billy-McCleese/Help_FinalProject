@@ -23,8 +23,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthComponent } from './auth/auth.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
-import { ReviewFormComponent } from './review-form/review-form.component';
-
+import { FavoriteListComponent } from './favorite-list/favorite-list.component';
+import { ReviewFormComponent } from './review-form/review-form.component'; 
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { ReviewFormComponent } from './review-form/review-form.component';
     DashboardComponent,
     AuthComponent,
     LogoutComponent,
-    ReviewFormComponent
+    ReviewFormComponent,
+    FavoriteListComponent,
+    FavoritesComponent
     
   ],
   imports: [

@@ -8,6 +8,32 @@
     <h5 class="text-primary" style="font-weight: 300">HRE</h5>
   </div>
 </div>
+<!-- ... -->
+
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="
+      addFavorite({ Id: 0, UserId: 1, CompleteAddress: getHouseAddress() })
+    "
+  >
+    Add to Favorites
+  </button>
+  <button
+    type="button"
+    class="btn btn-danger"
+    (click)="deleteFavorite(getHouseAddress())"
+  >
+    Remove Favorite
+  </button>
+  <button type="button" class="btn btn-secondary" (click)="closeModal()">
+    Close
+  </button>
+</div>
+
+<!-- ... -->
+
 <div class="modal-body h-100">
   <div class="close-button d-lg-block d-none">
     <p-button
