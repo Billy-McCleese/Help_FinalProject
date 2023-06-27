@@ -10,7 +10,7 @@ import { Review } from '../review';
   styleUrls: ['./property-details-modal.component.css'],
 })
 export class PropertyDetailsModalComponent implements OnInit {
-  @Input() visible = true;
+  //@Input() visible = true;
   @Input() propertyDetail?: Result;
   onModalClose?: () => void; 
   reviews: any[];
@@ -71,6 +71,7 @@ export class PropertyDetailsModalComponent implements OnInit {
       0
     );
   }
+
 
   getHouseBedRooms() {
     return (
