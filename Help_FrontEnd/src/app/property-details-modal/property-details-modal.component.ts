@@ -7,15 +7,13 @@ import { ApiService } from '../api.service';
 import { Favorite } from '../favorite';
 import { TabViewModule } from 'primeng/tabview';
 
-
-
 @Component({
   selector: 'app-property-details-modal',
   templateUrl: './property-details-modal.component.html',
   styleUrls: ['./property-details-modal.component.css'],
 })
 export class PropertyDetailsModalComponent implements OnInit {
-  //@Input() visible = true;
+ // @Input() visible = true;
   @Input() propertyDetail?: Result;
   onModalClose?: () => void; 
   reviewList: Review[] = [];
@@ -76,7 +74,6 @@ export class PropertyDetailsModalComponent implements OnInit {
       0
     );
   }
-
 
   getHouseBedRooms() {
     return (
