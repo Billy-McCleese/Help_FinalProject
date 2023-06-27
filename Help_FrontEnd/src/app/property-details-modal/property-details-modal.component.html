@@ -8,6 +8,21 @@
     <h5 class="text-primary" style="font-weight: 300">HRE</h5>
   </div>
 </div>
+<!-- ... -->
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="addFavorite({id: 0, userId: 1, completeAddress: getHouseAddress() })">
+    Add to Favorites
+  </button>
+  <button type="button" class="btn btn-danger" (click)="deleteFavorite(getHouseAddress())">
+    Remove Favorite
+  </button>
+  <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+</div>
+
+<!-- ... -->
+
+
 <div class="modal-body h-100">
   <div class="close-button d-lg-block d-none">
     <p-button
@@ -149,7 +164,16 @@
               <p-tabPanel header = "Reviews">
               
 
-  
+
+
+
+
+
+
+
+
+
+
   <!-- <h3>Rate the Property:</h3>
   <div>
     <form id="rating-form">

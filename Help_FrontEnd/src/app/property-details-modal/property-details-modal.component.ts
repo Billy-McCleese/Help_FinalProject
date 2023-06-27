@@ -4,6 +4,7 @@ import { DefaulterPipe } from '../pipes/defaulter.pipe';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Review } from '../review';
 import { ApiService } from '../api.service';
+import { Favorite } from '../favorite';
 
 
 @Component({
@@ -194,5 +195,22 @@ export class PropertyDetailsModalComponent implements OnInit {
     });
   }
 
+  addFavorite(favorite: Favorite): void {
+    this.apiService.createFavorite(favorite).subscribe((response) => {
+      console.log('Favorite added:', response);
+    }, (error) => {
+      console.error('Failed to add favorite:', error);
+    });
+  }
 
+  deleteFavorite(completeAddress: string): void {
+    this.apiService.deleteFavorite(completeAddress).subscribe(
+      () => {
+        console.log('Favorite deleted successfully');
+      },
+      (error) => {
+        console.error('Failed to delete favorite:', error);
+      }
+    );
+    }
 }

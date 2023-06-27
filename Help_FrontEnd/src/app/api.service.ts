@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Favorite } from './favorite';
 import { Review } from './review';
@@ -3459,7 +3459,7 @@ export class ApiService {
   }
 
   createFavorite(favorite: Favorite): Observable<Favorite> {
-    const url = `${this.url}/Favorite`;
+    const url = `${this.url}Favorite`;
     return this.http.post<Favorite>(url, favorite);
   }
 
@@ -3468,10 +3468,11 @@ export class ApiService {
     return this.http.put(url, favorite);
   }
 
-  deleteFavorite(id: number): Observable<any> {
-    const url = `${this.url}/Favorite/${id}`;
-    return this.http.delete(url);
+  deleteFavorite(completeAddress: string): Observable<any> {
+    const params = new HttpParams().set('completeAddress', completeAddress);
+    return this.http.delete(`${this.url}`, { params });
   }
+  
   // User Methods
 
   getUsers(): Observable<User[]> {
