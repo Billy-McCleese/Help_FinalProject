@@ -1,4 +1,7 @@
 <app-navbar></app-navbar>
+<div class="w-100 d-block h-100">
+  <router-outlet></router-outlet>
+</div>
 
 <ng-container *ngIf="!getResults().length; else page">
   <h5>Loading...</h5>

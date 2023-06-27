@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Photo, Result } from '../real-estate';
 import { DefaulterPipe } from '../pipes/defaulter.pipe';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
@@ -13,7 +14,7 @@ import { TabViewModule } from 'primeng/tabview';
   styleUrls: ['./property-details-modal.component.css'],
 })
 export class PropertyDetailsModalComponent implements OnInit {
- // @Input() visible = true;
+  @Input() visible = true;
   @Input() propertyDetail?: Result;
   onModalClose?: () => void; 
   reviewList: Review[] = [];

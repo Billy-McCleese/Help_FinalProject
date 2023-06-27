@@ -26,6 +26,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
 import { ReviewFormComponent } from './review-form/review-form.component'; 
 import { FavoritesComponent } from './favorites/favorites.component';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
     GalleriaModule,
     FormsModule,
     ReactiveFormsModule,
+    InputTextModule,
   ],
   bootstrap: [AppComponent],
 })
