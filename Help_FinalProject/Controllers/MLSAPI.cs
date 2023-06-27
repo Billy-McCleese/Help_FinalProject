@@ -3,6 +3,7 @@ using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Help_FinalProject;
+using Help_FinalProject.Models;
 
 [ApiController]
 [Route("api/[controller]")]
