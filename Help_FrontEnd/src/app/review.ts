@@ -9,8 +9,4 @@ export interface Review {
     Category: string,
     Title: string,
     Detail: string
-    
-
-    
 }
-

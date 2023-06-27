@@ -1,26 +1,21 @@
-<<<<<<< HEAD
-import { Component, Output, EventEmitter } from '@angular/core';
-import { RealEstate, Result } from './real-estate';
-import { ApiService } from './api.service';
-import { UIView } from './ui-view.enum';
-import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { PropertyDetailsModalComponent } from './property-details-modal/property-details-modal.component';
-=======
-import { Component } from '@angular/core';
->>>>>>> 22e36bebc26c0434def7dd4bc09f0a2ca2f6d552
+import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ApiService } from '../api.service';
+import { PropertyDetailsModalComponent } from '../property-details-modal/property-details-modal.component';
+import { RealEstate, Result } from '../real-estate';
+import { UIView } from '../ui-view.enum';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css'],
 })
-<<<<<<< HEAD
-export class AppComponent {
+export class DashboardComponent implements OnInit {
   title = 'Help_FrontEnd';
   realestate: RealEstate = {} as RealEstate;
   currentView: UIView = UIView.list;
   uiView = UIView;
-  @Output() selectedPropertyEmitter = new EventEmitter<any>();
+
   selectedProperty?: Result;
   showModal: boolean = false;
 
@@ -48,9 +43,9 @@ export class AppComponent {
   }
 
   public setSelectedProperty(property: any) {
+    console.log('->', property);
     this.selectedProperty = property;
     if (property) {
-      this.selectedPropertyEmitter.emit(property);
       this.popModal();
     }
 
@@ -83,6 +78,3 @@ export class AppComponent {
     this.selectedProperty = undefined;
   }
 }
-=======
-export class AppComponent {}
->>>>>>> 22e36bebc26c0434def7dd4bc09f0a2ca2f6d552
