@@ -21,7 +21,6 @@ import { ChipModule } from 'primeng/chip';
 import { GalleriaModule } from 'primeng/galleria';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthComponent } from './auth/auth.component';
-import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
@@ -42,7 +41,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
     DashboardComponent,
     AuthComponent,
     LogoutComponent,
-     ReviewFormComponent,
+    ReviewFormComponent,
     FavoriteListComponent,
     FavoritesComponent
     
@@ -60,11 +59,9 @@ import { FavoritesComponent } from './favorites/favorites.component';
     TabViewModule,
     ChipModule,
     GalleriaModule,
-    InputTextModule,
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

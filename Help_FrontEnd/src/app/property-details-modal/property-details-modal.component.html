@@ -11,19 +11,28 @@
 <!-- ... -->
 
 <div class="modal-footer">
-  <button type="button" class="btn btn-primary" (click)="addFavorite({Id: 0, UserId: 1, CompleteAddress: getHouseAddress() })">
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="
+      addFavorite({ Id: 0, UserId: 1, CompleteAddress: getHouseAddress() })
+    "
+  >
     Add to Favorites
   </button>
-  <button type="button" class="btn btn-danger" (click)="deleteFavorite(getHouseAddress())">
+  <button
+    type="button"
+    class="btn btn-danger"
+    (click)="deleteFavorite(getHouseAddress())"
+  >
     Remove Favorite
   </button>
-  <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+  <button type="button" class="btn btn-secondary" (click)="closeModal()">
+    Close
+  </button>
 </div>
 
 <!-- ... -->
-
-
-
 
 <div class="modal-body h-100">
   <div class="close-button d-lg-block d-none">
@@ -162,108 +171,156 @@
                   with loved ones.
                 </p>
               </p-tabPanel>
-             
-              <p-tabPanel header = "Reviews">
-              
 
+              <p-tabPanel header="Review">
+                <h3>Rate the Property:</h3>
+                <app-review-form
+                  [selectedProperty]="propertyDetail"
+                ></app-review-form>
+                <div>
+                  <form id="rating-form">
+                    <label
+                      class="star"
+                      for="star5"
+                      onclick="rateProperty(5)"
+                      onmouseover="highlightStars(5)"
+                      onmouseout="resetStars()"
+                      >&#9733;</label
+                    >
+                    <input
+                      type="radio"
+                      id="star5"
+                      name="rating"
+                      value="5"
+                      style="display: none"
+                    />
 
+                    <label
+                      class="star"
+                      for="star4"
+                      onclick="rateProperty(4)"
+                      onmouseover="highlightStars(4)"
+                      onmouseout="resetStars()"
+                      >&#9733;</label
+                    >
+                    <input
+                      type="radio"
+                      id="star4"
+                      name="rating"
+                      value="4"
+                      style="display: none"
+                    />
 
+                    <label
+                      class="star"
+                      for="star3"
+                      onclick="rateProperty(3)"
+                      onmouseover="highlightStars(3)"
+                      onmouseout="resetStars()"
+                      >&#9733;</label
+                    >
+                    <input
+                      type="radio"
+                      id="star3"
+                      name="rating"
+                      value="3"
+                      style="display: none"
+                    />
 
+                    <label
+                      class="star"
+                      for="star2"
+                      onclick="rateProperty(2)"
+                      onmouseover="highlightStars(2)"
+                      onmouseout="resetStars()"
+                      >&#9733;</label
+                    >
+                    <input
+                      type="radio"
+                      id="star2"
+                      name="rating"
+                      value="2"
+                      style="display: none"
+                    />
 
+                    <label
+                      class="star"
+                      for="star1"
+                      onclick="rateProperty(1)"
+                      onmouseover="highlightStars(1)"
+                      onmouseout="resetStars()"
+                      >&#9733;</label
+                    >
+                    <input
+                      type="radio"
+                      id="star1"
+                      name="rating"
+                      value="1"
+                      style="display: none"
+                    />
+                  </form>
+                  <span id="rating-message"></span>
+                </div>
 
+                <script>
+                  let currentRating = 0;
 
+                  function highlightStars(rating) {
+                    const stars = document.getElementsByClassName("star");
+                    for (let i = 0; i < rating; i++) {
+                      stars[i].classList.add("gold");
+                    }
+                  }
 
+                  function resetStars() {
+                    const stars = document.getElementsByClassName("star");
+                    for (let i = 0; i < stars.length; i++) {
+                      stars[i].classList.remove("gold");
+                    }
+                  }
 
+                  function rateProperty(rating) {
+                    // Perform any necessary actions with the rating
+                    // For example, you can send the rating to the server or update the UI
 
+                    // Show a message to the user
+                    document.getElementById(
+                      "rating-message"
+                    ).innerText = `You rated the property with ${rating} stars.`;
 
-  <!-- <h3>Rate the Property:</h3>
-  <div>
-    <form id="rating-form">
-      <label class="star" for="star5" onclick="rateProperty(5)" onmouseover="highlightStars(5)" onmouseout="resetStars()">&#9733;</label>
-      <input type="radio" id="star5" name="rating" value="5" style="display: none;">
-     
-      <label class="star" for="star4" onclick="rateProperty(4)" onmouseover="highlightStars(4)" onmouseout="resetStars()">&#9733;</label>
-      <input type="radio" id="star4" name="rating" value="4" style="display: none;">
-     
-      <label class="star" for="star3" onclick="rateProperty(3)" onmouseover="highlightStars(3)" onmouseout="resetStars()">&#9733;</label>
-      <input type="radio" id="star3" name="rating" value="3" style="display: none;">
-     
-      <label class="star" for="star2" onclick="rateProperty(2)" onmouseover="highlightStars(2)" onmouseout="resetStars()">&#9733;</label>
-      <input type="radio" id="star2" name="rating" value="2" style="display: none;">
-     
-      <label class="star" for="star1" onclick="rateProperty(1)" onmouseover="highlightStars(1)" onmouseout="resetStars()">&#9733;</label>
-      <input type="radio" id="star1" name="rating" value="1" style="display: none;">
-    </form>
-    <span id="rating-message"></span>
-  </div> -->
-  
-  <ng-container *ngIf="reviewList.length">
-    <ng-container *ngFor="let item of reviewList">
-      <div *ngIf="item.CompleteAddress == propertyDetail.permalink">
-        <h3>{{item.Title}}</h3>
-        <p>{{item.Detail}}</p>
-        <h6>-{{item.Reporter}}</h6>
-      </div>
-    </ng-container>
-  </ng-container>
+                    // Update the current rating
+                    currentRating = rating;
+                  }
+                </script>
 
-  <script>
-    let currentRating = 0;
-  
-    function highlightStars(rating) {
-      const stars = document.getElementsByClassName('star');
-      for (let i = 0; i < rating; i++) {
-        stars[i].classList.add('gold');
-      }
-    }
-  
-    function resetStars() {
-      const stars = document.getElementsByClassName('star');
-      for (let i = 0; i < stars.length; i++) {
-        stars[i].classList.remove('gold');
-      }
-    }
-  
-    function rateProperty(rating) {
-      // Perform any necessary actions with the rating
-      // For example, you can send the rating to the server or update the UI
-  
-      // Show a message to the user
-      document.getElementById('rating-message').innerText = `You rated the property with ${rating} stars.`;
-  
-      // Update the current rating
-      currentRating = rating;
-    }
-  </script>
-  
-  <style>
-    .rating-stars {
-      font-size: 30px;
-    }
-  
-    .star {
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-  
-    .star.gold {
-      color: gold;
-    }
-  
-    /* Style the radio buttons as stars */
-    input[type="radio"][name="rating"] {
-      display: none;
-    }
-  
-    input[type="radio"][name="rating"] + label {
-      font-size: 30px;
-      cursor: pointer;
-    }
-  
-    input[type="radio"][name="rating"]:checked + label {
-      color: gold;
-    }
-  </style> 
+                <style>
+                  .rating-stars {
+                    font-size: 30px;
+                  }
+
+                  .star {
+                    cursor: pointer;
+                    transition: color 0.3s;
+                  }
+
+                  .star.gold {
+                    color: gold;
+                  }
+
+                  /* Style the radio buttons as stars */
+                  input[type="radio"][name="rating"] {
+                    display: none;
+                  }
+
+                  input[type="radio"][name="rating"] + label {
+                    font-size: 30px;
+                    cursor: pointer;
+                  }
+
+                  input[type="radio"][name="rating"]:checked + label {
+                    color: gold;
+                  }
+                </style>
               </p-tabPanel>
               <p-tabPanel header="Description">
                 <ul class="list-group">
@@ -437,5 +494,4 @@
       class="img-fluid"
     />
   </div>
-  
 </ng-template>
