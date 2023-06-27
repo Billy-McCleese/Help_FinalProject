@@ -1,23 +1,13 @@
-<<<<<<< HEAD
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Review } from '../review';
 import { ApiService } from '../api.service';
 import { Result } from '../real-estate';
-=======
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Review } from '../review';
-import { ApiService } from '../api.service';
->>>>>>> eac54c6e60ad490425bccabdba9da9cff215513d
 
 @Component({
   selector: 'app-review-form',
   templateUrl: './review-form.component.html',
-<<<<<<< HEAD
   styleUrls: ['./review-form.component.css']
 })
 export class ReviewFormComponent implements OnChanges {
@@ -48,24 +38,10 @@ export class ReviewFormComponent implements OnChanges {
       PropertyZip: [this.selectedProperty?.location.address.postal_code],
       Title: ["", Validators.required],
       Detail: ["", Validators.required]
-=======
-  styleUrls: ['./review-form.component.css'] 
-})
-export class ReviewFormComponent {
-  reviewForm: FormGroup;
-
-  private url = 'https://localhost:7105/api/'; // Replace with your API URL
-
-  constructor(private http: HttpClient, private formBuilder: FormBuilder, private apiService: ApiService) {
-    this.reviewForm =this.formBuilder.group({
-      reviewTitle: ["", Validators.required],
-      reviewDetails: ["", Validators.required]
->>>>>>> eac54c6e60ad490425bccabdba9da9cff215513d
     })
   }
 
 
-<<<<<<< HEAD
   onSubmit() {
      if (this.reviewForm.valid) {
       const review: Review = this.reviewForm.value;
@@ -78,22 +54,5 @@ export class ReviewFormComponent {
         this.reviewForm.reset();
       });
     }
-=======
-  createReview(review: Review): Observable<Review> {
-    const url = `${this.url}/Review`;
-    return this.http.post<Review>(url, review);
-  }
-
-  onSubmit() {
-    if (this.reviewForm.valid) {
-      const review: Review = this.reviewForm.value;
-      console.log(review);
-      
-      // handle your user data here...
-      this.apiService.createReview(review)
-
-      this.reviewForm.reset();
-    };
->>>>>>> eac54c6e60ad490425bccabdba9da9cff215513d
   }
 }
