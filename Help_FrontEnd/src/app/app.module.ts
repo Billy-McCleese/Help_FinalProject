@@ -19,18 +19,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TabViewModule } from 'primeng/tabview';
 import { ChipModule } from 'primeng/chip';
 import { GalleriaModule } from 'primeng/galleria';
-<<<<<<< HEAD
-import { FavoriteListComponent } from './favorite-list/favorite-list.component';
-import { ReviewFormComponent } from './review-form/review-form.component'; 
-import { ReactiveFormsModule } from '@angular/forms';
-=======
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthComponent } from './auth/auth.component';
-import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
+import { ReviewFormComponent } from './review-form/review-form.component';
 
->>>>>>> 22e36bebc26c0434def7dd4bc09f0a2ca2f6d552
 
 @NgModule({
   declarations: [
@@ -43,15 +37,11 @@ import { LogoutComponent } from './logout/logout.component';
     DefaulterPipe,
     ViewSwitcherButtonComponent,
     PropertyDetailsModalComponent,
-<<<<<<< HEAD
-    ReviewFormComponent,
-    FavoriteListComponent,
-=======
     DashboardComponent,
     AuthComponent,
-    LogoutComponent
+    LogoutComponent,
+    ReviewFormComponent
     
->>>>>>> 22e36bebc26c0434def7dd4bc09f0a2ca2f6d552
   ],
   imports: [
     BrowserModule,
@@ -66,16 +56,8 @@ import { LogoutComponent } from './logout/logout.component';
     TabViewModule,
     ChipModule,
     GalleriaModule,
-<<<<<<< HEAD
-    ReactiveFormsModule,
-  ],
-  providers: [
-    // other providers...
-=======
-    InputTextModule,
     FormsModule,
     ReactiveFormsModule,
->>>>>>> 22e36bebc26c0434def7dd4bc09f0a2ca2f6d552
   ],
   bootstrap: [AppComponent],
 })

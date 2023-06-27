@@ -1,20 +1,15 @@
-<<<<<<< HEAD
 import { Component, Output, EventEmitter } from '@angular/core';
 import { RealEstate, Result } from './real-estate';
 import { ApiService } from './api.service';
 import { UIView } from './ui-view.enum';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { PropertyDetailsModalComponent } from './property-details-modal/property-details-modal.component';
-=======
-import { Component } from '@angular/core';
->>>>>>> 22e36bebc26c0434def7dd4bc09f0a2ca2f6d552
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-<<<<<<< HEAD
 export class AppComponent {
   title = 'Help_FrontEnd';
   realestate: RealEstate = {} as RealEstate;
@@ -83,6 +78,3 @@ export class AppComponent {
     this.selectedProperty = undefined;
   }
 }
-=======
-export class AppComponent {}
->>>>>>> 22e36bebc26c0434def7dd4bc09f0a2ca2f6d552
