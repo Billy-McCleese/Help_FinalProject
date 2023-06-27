@@ -35,9 +35,7 @@ import { ReviewFormComponent } from './review-form/review-form.component';
     RealestatemapComponent,
     DefaulterPipe,
     ViewSwitcherButtonComponent,
-
     PropertyDetailsModalComponent,
-
     FavoriteListComponent,
     ReviewFormComponent
 
