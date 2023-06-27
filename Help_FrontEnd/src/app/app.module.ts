@@ -13,7 +13,6 @@ import { CardModule } from 'primeng/card';
 import { DefaulterPipe } from './pipes/defaulter.pipe';
 import { ButtonModule } from 'primeng/button';
 import { ViewSwitcherButtonComponent } from './view-switcher-button/view-switcher-button.component';
-
 import { DialogModule } from 'primeng/dialog';
 import { PropertyDetailsModalComponent } from './property-details-modal/property-details-modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,11 +20,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TabViewModule } from 'primeng/tabview';
 import { ChipModule } from 'primeng/chip';
 import { GalleriaModule } from 'primeng/galleria';
-
-import { FavoriteListComponent } from './favorite-list/favorite-list.component';
-import { ReviewFormComponent } from './review-form/review-form.component'; 
-import { ReactiveFormsModule } from '@angular/forms';
-
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthComponent } from './auth/auth.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -38,14 +37,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     RealestatemapComponent,
     DefaulterPipe,
     ViewSwitcherButtonComponent,
-
     PropertyDetailsModalComponent,
-    ReviewFormComponent,
+    DashboardComponent,
+    AuthComponent,
+    LogoutComponent
     
-    
-
-    FavoriteListComponent
-
   ],
   imports: [
     BrowserModule,
@@ -60,7 +56,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     TabViewModule,
     ChipModule,
     GalleriaModule,
-    ReactiveFormsModule
+    InputTextModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

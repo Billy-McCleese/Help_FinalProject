@@ -3,8 +3,22 @@
     <div class="row w-100">
       <div class="col-4 d-flex justify-content-start align-items-center">
         <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <li class="nav-item" *ngIf="!onAuthPage">
+            <a
+              [routerLink]="'/rentals'"
+              class="nav-link active"
+              aria-current="page"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item" *ngIf="!onAuthPage">
+            <a
+              href="javascript:void(0)"
+              class="nav-link active"
+              aria-current="page"
+              (click)="navigateForAuth()"
+              >{{ isLoggedIn ? "Logout" : "Login" }}</a
+            >
           </li>
         </ul>
       </div>
@@ -15,7 +29,7 @@
       </div>
       <div class="col-4 ms-auto d-flex justify-content-end align-items-center">
         <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="!onAuthPage">
             <form class="d-flex" role="search">
               <input
                 class="form-control me-2"
@@ -31,33 +45,5 @@
         </ul>
       </div>
     </div>
-    <!-- <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button> -->
-    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex d-lg-none">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-
-        <form class="d-flex" role="search">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </ul>
-    </div> -->
   </div>
 </nav>
