@@ -146,11 +146,11 @@
                 </p>
               </p-tabPanel>
              
-              <p-tabPanel header = "Reviews">
+              <p-tabPanel header = "Review">
               
 
   
-  <!-- <h3>Rate the Property:</h3>
+  <h3>Rate the Property:</h3>
   <div>
     <form id="rating-form">
       <label class="star" for="star5" onclick="rateProperty(5)" onmouseover="highlightStars(5)" onmouseout="resetStars()">&#9733;</label>
@@ -169,18 +169,8 @@
       <input type="radio" id="star1" name="rating" value="1" style="display: none;">
     </form>
     <span id="rating-message"></span>
-  </div> -->
+  </div>
   
-  <ng-container *ngIf="reviewList.length">
-    <ng-container *ngFor="let item of reviewList">
-      <div *ngIf="item.completeAddress == propertyDetail.permalink">
-        <h3>{{item.title}}</h3>
-        <p>{{item.detail}}</p>
-        <h6>-{{item.reporter}}</h6>
-      </div>
-    </ng-container>
-  </ng-container>
-
   <script>
     let currentRating = 0;
   

@@ -1,0 +1,7 @@
+.prop-list {
+  border-left: 0.05rem solid rgba(0, 0, 0, 0.5);
+}
+
+.modal-dialog {
+  margin: 0 !important;
+}
