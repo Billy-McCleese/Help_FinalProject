@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Photo, Result } from '../real-estate';
 import { DefaulterPipe } from '../pipes/defaulter.pipe';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
@@ -6,8 +7,6 @@ import { Review } from '../review';
 import { ApiService } from '../api.service';
 import { Favorite } from '../favorite';
 import { TabViewModule } from 'primeng/tabview';
-
-
 
 @Component({
   selector: 'app-property-details-modal',
@@ -20,23 +19,7 @@ export class PropertyDetailsModalComponent implements OnInit {
   onModalClose?: () => void; 
   reviewList: Review[] = [];
 
-  constructor(public modal: NgbActiveModal, private apiService: ApiService) {
-    //this.propertyDetail?= '123';
-    // this.reviews = [
-    //   // Sample review objects
-    //   {
-    //     address: '123 Main St',
-    //     city: 'City',
-    //     state: 'State',
-    //     zip: '12345',
-    //     Reporter: 'John Doe',
-    //     category: 'Category',
-    //     title: 'Review Title',
-    //     Detail: 'Review Detail'
-    //   },
-    //   // More review objects...
-    // ];
-  }
+  constructor(public modal: NgbActiveModal, private apiService: ApiService) {}
   
 
   ngOnInit(): void {
@@ -51,9 +34,6 @@ export class PropertyDetailsModalComponent implements OnInit {
         ?.filter((v) => !!v) ?? []
     );
   }
-
- 
-
 
   getSanitizedValue(data: any): string {
     return new DefaulterPipe().transform(data);

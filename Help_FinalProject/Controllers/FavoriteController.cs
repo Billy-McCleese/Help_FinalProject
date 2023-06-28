@@ -77,11 +77,27 @@ namespace Help_FinalProject.Controllers
             return NoContent();
         }
 
-        // DELETE: api/Favorite/id
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteFavorite(int id)
+        //// DELETE: api/Favorite/id
+        //[HttpDelete("{id}")]
+        //public async Task<IActionResult> DeleteFavorite(int id)
+        //{
+        //    var favorite = await _context.Favorites.FindAsync(id);
+        //    if (favorite == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    _context.Favorites.Remove(favorite);
+        //    await _context.SaveChangesAsync();
+
+        //    return Ok(favorite);
+        //}
+
+        // DELETE: api/Favorite/completeAddress
+        [HttpDelete("{completeAddress}")]
+        public async Task<IActionResult> DeleteFavorite(string completeAddress)
         {
-            var favorite = await _context.Favorites.FindAsync(id);
+            var favorite = await _context.Favorites.FirstOrDefaultAsync(f => f.CompleteAddress == completeAddress);
             if (favorite == null)
             {
                 return NotFound();
@@ -92,6 +108,7 @@ namespace Help_FinalProject.Controllers
 
             return Ok(favorite);
         }
+
 
         private bool FavoriteExists(int id)
         {
