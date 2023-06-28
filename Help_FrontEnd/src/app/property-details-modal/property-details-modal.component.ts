@@ -19,23 +19,7 @@ export class PropertyDetailsModalComponent implements OnInit {
   onModalClose?: () => void; 
   reviewList: Review[] = [];
 
-  constructor(public modal: NgbActiveModal, private apiService: ApiService) {
-    //this.propertyDetail?= '123';
-    // this.reviews = [
-    //   // Sample review objects
-    //   {
-    //     address: '123 Main St',
-    //     city: 'City',
-    //     state: 'State',
-    //     zip: '12345',
-    //     Reporter: 'John Doe',
-    //     category: 'Category',
-    //     title: 'Review Title',
-    //     Detail: 'Review Detail'
-    //   },
-    //   // More review objects...
-    // ];
-  }
+  constructor(public modal: NgbActiveModal, private apiService: ApiService) {}
   
 
   ngOnInit(): void {
@@ -50,9 +34,6 @@ export class PropertyDetailsModalComponent implements OnInit {
         ?.filter((v) => !!v) ?? []
     );
   }
-
- 
-
 
   getSanitizedValue(data: any): string {
     return new DefaulterPipe().transform(data);

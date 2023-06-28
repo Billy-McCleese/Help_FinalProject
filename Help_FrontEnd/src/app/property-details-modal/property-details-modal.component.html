@@ -177,7 +177,18 @@
                 <app-review-form
                   [selectedProperty]="propertyDetail"
                 ></app-review-form>
-                <div>
+
+                <ng-container *ngIf="reviewList.length">
+                  <ng-container *ngFor="let item of reviewList">
+                    <div *ngIf="item.completeAddress == propertyDetail.permalink">
+                      <h3>{{item.title}}</h3>
+                      <p>{{item.detail}}</p>
+                      <!-- <h6>-{{item.reporter}}</h6> -->
+                    </div>
+                  </ng-container>
+              </ng-container>
+
+                <!-- <div>
                   <form id="rating-form">
                     <label
                       class="star"
@@ -260,9 +271,9 @@
                     />
                   </form>
                   <span id="rating-message"></span>
-                </div>
+                </div> -->
 
-                <script>
+                <!-- <script>
                   let currentRating = 0;
 
                   function highlightStars(rating) {
@@ -291,7 +302,7 @@
                     // Update the current rating
                     currentRating = rating;
                   }
-                </script>
+                </script> -->
 
                 <style>
                   .rating-stars {
