@@ -20,12 +20,16 @@ export class PropertyCardComponent implements OnInit {
   realestateList: RealEstate[] = [];
   realestate: RealEstate = {} as RealEstate;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) {
+
+    this.getUsers();
+
+  }
 
   ngOnInit(): void {
     this.getFavorites();
     this.getUsers();
-    this.getReviews();
+    this.getReviews();    
   }
 
   getFavorites(): void {
@@ -40,7 +44,8 @@ export class PropertyCardComponent implements OnInit {
     });
 
     this.apiService
-      .GetRentalDataByZip(44138, 10, 0, 'lowest_price')
+      //.GetRentalDataByZip(44138, 10, 0, 'lowest_price')
+      .GetRentalDataByZip()
       .subscribe((result) => {
         this.realestate = result;
         console.log(result);

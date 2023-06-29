@@ -17,6 +17,11 @@ export class PropertylistComponent implements OnInit {
   constructor(private apiService: ApiService) {}
   ngOnInit(): void {}
 
+
+
+
+
+
   getResults() {
     return this.properties?.data?.home_search?.results ?? [];
   }
