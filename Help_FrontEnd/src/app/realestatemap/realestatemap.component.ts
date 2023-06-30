@@ -4,18 +4,22 @@ import {
   Input,
   OnInit,
   Output,
+  SimpleChanges,
   ViewChild,
 } from '@angular/core';
 import { MapAnchorPoint, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { RealEstate, Result } from '../real-estate';
 import { DefaulterPipe } from '../pipes/defaulter.pipe';
+import { ApiService } from '../api.service';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-realestatemap',
   templateUrl: './realestatemap.component.html',
   styleUrls: ['./realestatemap.component.css'],
 })
-export class RealestatemapComponent implements OnInit {
+//export class RealestatemapComponent implements OnInit {
+export class RealestatemapComponent {
   @Input('properties') properties: RealEstate = {} as RealEstate;
   @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow = {} as MapInfoWindow;
   @Output() setSelectedProperty = new EventEmitter<Result>();
@@ -26,6 +30,14 @@ export class RealestatemapComponent implements OnInit {
     zoom: 12,
     mapTypeId: 'roadmap',
   };
+  
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['properties'] && !changes['properties'].firstChange) {
+      this.markers = [];
+      this.setPropertyMarkers();
+      console.log("Hit OnChanges");
+    }
+  }
 
   ngOnInit(): void {
     this.markers = [];
@@ -33,18 +45,29 @@ export class RealestatemapComponent implements OnInit {
   }
 
   setPropertyMarkers() {
-    this.properties.data?.home_search?.results?.forEach((result: Result) => {
-      const crds = this.getPropertyCoordinates(result);
-      if (crds) this.markers.push(crds);
-    });
-    if (this.markers.length) {
-      const lastMarker = this.markers[this.markers.length - 1];
-      this.mapOptions.center = { lat: lastMarker.lat, lng: lastMarker.lng };
-    } else {
-      this.mapOptions.center = undefined;
+    this.markers = [];
+    const results = this.properties?.data?.home_search?.results;
+    console.log("Hit Method")
+    console.log(results)
+    if (results) {
+      results.forEach((result: Result) => {
+        const crds = this.getPropertyCoordinates(result);
+        if (crds) this.markers.push(crds);
+      });
     }
-  }
+    // if (this.markers.length) {
+    //       const lastMarker = this.markers[this.markers.length - 1];
+    //       this.mapOptions.center = { lat: lastMarker.lat, lng: lastMarker.lng };
+    //     } else {
+    //       this.mapOptions.center = undefined;
+    //     }
 
+      const lastMarker = this.markers[this.markers.length - 1];
+      console.log(lastMarker)
+      this.mapOptions.center = { lat: lastMarker.lat, lng: lastMarker.lng };
+    
+  }
+  
   private setPropertyInfoWindowDetail(lat: number, lng: number) {
     const property = this.getPropertyByCoordinates(lat, lng);
     console.log(property);

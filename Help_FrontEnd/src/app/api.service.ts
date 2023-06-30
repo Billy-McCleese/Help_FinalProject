@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Favorite } from './favorite';
 import { Review } from './review';
 import { User } from './user';
@@ -14,22 +14,15 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   private readonly url = 'https://localhost:7105/api/';
-  private readonly externalUrl =
-    'https://us-real-estate.p.rapidapi.com/v2/for-rent-by-zipcode?zipcode=';
+  //zip: number = 10001;
+  public zip: BehaviorSubject<number> = new BehaviorSubject<number>(48188);
+  limit: number = 10;
+  offset: number = 0;
+  sort: string = 'lowest_price';
 
-  //MLSAPI
-  GetRentalDataByZip(
-    zip: number,
-    limit: number,
-    offset: number,
-    sort: string
-  ): Observable<RealEstate> {
-    // Make the HTTP request with options
-
-    return this.http.get<RealEstate>(
-      `${this.url}RealEstate/rent-by-zipcode?zipcode=48188&limit=10&offset=1&sort=lowest_price`
-    );
-
+  // MLSAPI External API
+  GetRentalDataByZip(): Observable<RealEstate>{
+    return this.http.get<RealEstate>(this.url + 'RealEstate/rent-by-zipcode?zipcode=' + this.zip.getValue() + '&limit=' + this.limit + '&offset=' + this.offset + '&sort=' + this.sort);
   }
 
   // Favorite Methods

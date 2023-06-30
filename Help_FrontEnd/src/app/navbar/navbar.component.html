@@ -30,12 +30,13 @@
       <div class="col-4 ms-auto d-flex justify-content-end align-items-center">
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item" *ngIf="!onAuthPage">
-            <form class="d-flex" role="search">
+            <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="d-flex" role="search">
               <input
                 class="form-control me-2"
                 type="search"
-                placeholder="Search"
+                placeholder="Search by Zip"
                 aria-label="Search"
+                formControlName="searchQuery"
               />
               <button class="btn btn-outline-success" type="submit">
                 Search
