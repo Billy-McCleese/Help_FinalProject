@@ -22,14 +22,8 @@ export class AppComponent {
   constructor(private apiService: ApiService, private modalService: NgbModal) {}
 
   ngOnInit(): void {
-    //this.getGetRentalDataByZip(48188, 6, 1, 'lowest_price');
-  }
-
-  // private getGetRentalDataByZip(zip: number, limit: number, offset: number, sort: string): void {
-  //   this.apiService.GetRentalDataByZip(zip, limit, offset, sort).subscribe((result: RealEstate) => {
-  //     this.realestate = result;
-  //   });
-  // }
+    
+  }  
   
   private getGetRentalDataByZip(zip: number, limit: number, offset: number, sort: string): void {
     this.apiService.GetRentalDataByZip().subscribe((result: RealEstate) => {
