@@ -51,6 +51,12 @@ export class ApiService {
     const url = `${this.url}Favorite/${CompleteAddress}`;
     return this.http.delete(url);
   }
+
+  getFavoritesByAddress(address: string): Observable<Favorite[]> {
+    const url = `${this.url}Favorite/address/${(address)}`;
+    return this.http.get<Favorite[]>(url);
+  }
+
   // User Methods
 
   getUsers(): Observable<User[]> {

@@ -810,6 +810,7 @@ $RECYCLE.BIN/
 # Additional files built by Visual Studio
 
 **/Secret.cs
+**/Secrets.cs
 
 index.html
 
