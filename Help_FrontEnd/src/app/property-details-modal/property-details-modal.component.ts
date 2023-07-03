@@ -18,6 +18,7 @@ export class PropertyDetailsModalComponent implements OnInit {
   @Input() propertyDetail?: Result;
   onModalClose?: () => void; 
   reviewList: Review[] = [];
+  isFavorite: boolean = false;
 
   constructor(public modal: NgbActiveModal, private apiService: ApiService) {}
   
@@ -25,6 +26,13 @@ export class PropertyDetailsModalComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.propertyDetail);
     this.getReviews();
+    
+    const address = this.getHouseAddress();
+    this.apiService.getFavoritesByAddress(address).subscribe(
+      (favorites) => {
+        this.isFavorite = favorites && favorites.length > 0; // Update the isFavorite flag based on the response
+      }, 
+  );
   }
 
   getHouseImages() {
@@ -180,18 +188,14 @@ export class PropertyDetailsModalComponent implements OnInit {
   addFavorite(favorite: Favorite): void {
     this.apiService.createFavorite(favorite).subscribe((response) => {
       console.log('Favorite added:', response);
-    }, (error) => {
-      console.error('Failed to add favorite:', error);
-    });
+    }
+    );
   }
 
   deleteFavorite(completeAddress: string): void {
     this.apiService.deleteFavorite(completeAddress).subscribe(
       () => {
         console.log('Favorite deleted successfully');
-      },
-      (error) => {
-        console.error('Failed to delete favorite:', error);
       }
     );
     }

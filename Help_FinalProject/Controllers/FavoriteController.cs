@@ -37,6 +37,18 @@ namespace Help_FinalProject.Controllers
             return favorite;
         }
 
+        // GET: api/Favorite/address/{completeAddress}
+        [HttpGet("address/{completeAddress}")]
+        public async Task<ActionResult<IEnumerable<Favorite>>> GetFavoritesByAddress(string completeAddress)
+        {
+            var favorites = await _context.Favorites
+                .Where(f => f.CompleteAddress == completeAddress)
+                .ToListAsync();
+
+            return favorites;
+        }
+
+
         // POST: api/Favorite
         [HttpPost]
         public async Task<ActionResult<Favorite>> PostFavorite(Favorite favorite)
@@ -77,22 +89,7 @@ namespace Help_FinalProject.Controllers
             return NoContent();
         }
 
-        //// DELETE: api/Favorite/id
-        //[HttpDelete("{id}")]
-        //public async Task<IActionResult> DeleteFavorite(int id)
-        //{
-        //    var favorite = await _context.Favorites.FindAsync(id);
-        //    if (favorite == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    _context.Favorites.Remove(favorite);
-        //    await _context.SaveChangesAsync();
-
-        //    return Ok(favorite);
-        //}
-
+       
         // DELETE: api/Favorite/completeAddress
         [HttpDelete("{completeAddress}")]
         public async Task<IActionResult> DeleteFavorite(string completeAddress)

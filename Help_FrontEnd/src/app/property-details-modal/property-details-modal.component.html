@@ -14,9 +14,8 @@
   <button
     type="button"
     class="btn btn-primary"
-    (click)="
-      addFavorite({ Id: 0, UserId: 1, CompleteAddress: getHouseAddress() })
-    "
+    (click)="addFavorite({ Id: 0, UserId: 1, CompleteAddress: getHouseAddress() })"
+    *ngIf="!isFavorite"
   >
     Add to Favorites
   </button>
@@ -24,8 +23,9 @@
     type="button"
     class="btn btn-danger"
     (click)="deleteFavorite(getHouseAddress())"
+    *ngIf="isFavorite"
   >
-    Remove Favorite
+    Remove from Favorites
   </button>
   <button type="button" class="btn btn-secondary" (click)="closeModal()">
     Close
