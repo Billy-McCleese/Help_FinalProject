@@ -28,11 +28,6 @@ export class NavbarComponent implements OnInit {
     this.setLoginContent();
     console.log(this.apiService.zip)
 
-    //add
-    // this.searchForm.patchValue({
-    //   searchQuery: ''
-    // });
-    //add
   }
 
   private setLoginContent(): void {
@@ -58,14 +53,9 @@ export class NavbarComponent implements OnInit {
   }
 
 onSearch(): void {
-  const searchQuery = Number(this.searchForm.value.searchQuery);
-  //this.apiService.zip = searchQuery;
+  const searchQuery = Number(this.searchForm.value.searchQuery); 
   this.apiService.zip.next(searchQuery);
   console.log(this.apiService.zip);
-
-  //this.ngOnInit();
-  //this.router.navigate(['/rentals']);
 }
-
   
 }

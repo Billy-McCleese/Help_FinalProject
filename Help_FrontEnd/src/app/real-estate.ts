@@ -5,49 +5,34 @@ export interface RealEstate {
 
 export interface Data {
   home_search: HomeSearch;
-  // geo: Geo
+  
 }
 
-export interface HomeSearch {
-  // total: number
-  // count: number
+export interface HomeSearch { 
   results: Result[];
 }
 
 export interface Result {
-  photos: Photo[] | null;
-  // branding: Branding
-  // other_listings: OtherListings
+  photos: Photo[] | null; 
   list_price_min: number | null;
   href: string;
   when_indexed: string;
   last_sold_price: any;
-  property_id: string;
-  // advertisers: Advertiser[]
-  // virtual_tours: any
-  // seller_promotion: any
+  property_id: string;  
   listing_id: string;
   price_reduced_amount: any;
   location: Location;
-  last_update_date: string;
-  // source: Source
+  last_update_date: string;  
   permalink: string;
   list_date: any;
   open_houses: any;
   last_sold_date: any;
   last_price_change_date: any;
-  description: Description;
-  //last_price_change_amount: any
-  //price_reduced_date: any
-  //property_history: any
+  description: Description;  
   photo_count: number | null;
-  list_price: any;
-  // lead_attributes: LeadAttributes
+  list_price: any; 
   list_price_max: number | null;
-  tags: string[] | null;
-  // pet_policy: PetPolicy
-  // products: Products
-  // suppression_flags: SuppressionFlags
+  tags: string[] | null;  
   status: string;
   flags: Flags;
   community: any;
@@ -63,79 +48,17 @@ export interface Photo {
   type: any;
 }
 
-// export interface Branding {}
-
-// export interface OtherListings {
-//   rdc: Rdc[]
-// }
-
-// export interface Rdc {
-//   listing_id: string
-//   status: string
-//   primary?: boolean
-// }
-
-// export interface Advertiser {
-//   office: Office
-//   broker: any
-//   name: any
-//   mls_set: any
-//   email: any
-//   nrds_id: any
-//   type: string
-//   slogan: any
-//   photo: any
-//   href: any
-//   phones: any
-//   fulfillment_id: any
-// }
-
-// export interface Office {
-//   phones: Phone[]
-//   lead_email?: LeadEmail
-//   photo: any
-//   name: string
-//   fulfillment_id: any
-//   href?: string
-//   mls_set: any
-//   email?: string
-// }
-
-// export interface Phone {
-//   trackable: any
-//   number?: string
-//   ext: any
-//   primary: boolean
-//   type: string
-// }
-
-// export interface LeadEmail {
-//   to: string
-//   cc: any
-// }
-
-export interface Location {
-  // county: County
+export interface Location { 
   address: Address;
   search_areas: SearchArea[];
   neighborhoods: any;
 }
 
-// export interface County {
-//   name: string
-//   state_code: string
-//   fips_code: string
-// }
-
-export interface Address {
-  //street_post_direction: any
+export interface Address {  
   street_number: string;
-  state: string;
-  //street_suffix: string
-  state_code: string;
-  //unit: any
-  postal_code: string;
-  //street_direction: any
+  state: string; 
+  state_code: string; 
+  postal_code: string;  
   street_name: string;
   country: string;
   coordinate?: Coordinate;
@@ -152,16 +75,6 @@ export interface SearchArea {
   city: string;
   state_code: string;
 }
-
-// export interface Source {
-//   agents: any
-//   community_id: number
-//   id: string
-//   listing_id: string
-//   name: string
-//   raw: any
-//   type: string
-// }
 
 export interface Description {
   garage_max: any | null;
@@ -189,38 +102,9 @@ export interface Description {
   type: string | null;
 }
 
-// export interface LeadAttributes {
-//   show_contact_an_agent: boolean
-// }
-
-// export interface PetPolicy {
-//   cats: boolean
-//   dogs: boolean
-//   dogs_large: boolean
-//   dogs_small: boolean
-//   text: string
-// }
-
-// export interface Products {
-//   products: string[]
-//   product_attributes: any
-// }
-
-// export interface SuppressionFlags {
-//   has_suppress_management_company_logo: boolean
-//   has_suppress_list_date: boolean
-//   has_suppress_management_company_other_listings: boolean
-//   has_suppress_management_company_name: boolean
-//   has_suppress_management_company_url: boolean
-//   has_suppress_foreclosure: boolean
-// }
-
 export interface Flags {
-  is_deal_available: any;
-  // is_senior_community: any
-  // is_new_listing: any
-  is_for_rent: boolean;
-  // is_garage_present: any
+  is_deal_available: any;  
+  is_for_rent: boolean; 
 }
 
 export interface PrimaryPhoto {
@@ -228,116 +112,3 @@ export interface PrimaryPhoto {
   type: any;
   description: any;
 }
-
-// export interface Geo {
-//   parents: Parent[]
-//   recommended_zips: RecommendedZips
-//   recommended_cities: RecommendedCities
-//   recommended_counties: RecommendedCounties
-//   geo_statistics: GeoStatistics4
-//   recommended_neighborhoods: RecommendedNeighborhoods
-// }
-
-// export interface Parent {
-//   name: string
-//   geo_type: string
-//   slug_id: string
-// }
-
-// export interface RecommendedZips {
-//   geos: Geo2[]
-// }
-
-// export interface Geo2 {
-//   slug_id: string
-//   postal_code: string
-//   geo_type: string
-//   geo_statistics: GeoStatistics
-// }
-
-// export interface GeoStatistics {
-//   housing_market: HousingMarket
-// }
-
-// export interface HousingMarket {
-//   median_rent_price: number
-// }
-
-// export interface RecommendedCities {
-//   geos: Geo3[]
-// }
-
-// export interface Geo3 {
-//   slug_id: string
-//   city: string
-//   state_code: string
-//   geo_type: string
-//   geo_statistics: GeoStatistics2
-// }
-
-// export interface GeoStatistics2 {
-//   housing_market: HousingMarket2
-// }
-
-// export interface HousingMarket2 {
-//   median_rent_price?: number
-// }
-
-// export interface RecommendedCounties {
-//   geos: Geo4[]
-// }
-
-// export interface Geo4 {
-//   slug_id: string
-//   geo_statistics: GeoStatistics3
-//   state_code: string
-//   geo_type: string
-//   county: string
-// }
-
-// export interface GeoStatistics3 {
-//   housing_market: HousingMarket3
-// }
-
-// export interface HousingMarket3 {
-//   median_rent_price?: number
-// }
-
-// export interface GeoStatistics4 {
-//   market_trends: MarketTrends
-// }
-
-// export interface MarketTrends {
-//   age_days: number
-//   listing_price: number
-//   listing_price_sqft: number
-//   median_sold_price: number
-//   rental_listing_price: number
-//   month_to_month: MonthToMonth
-//   active_listing_count: number
-// }
-
-// export interface MonthToMonth {
-//   active_rental_listing_count_percent_change: number
-// }
-
-// export interface RecommendedNeighborhoods {
-//   geos: Geo5[]
-// }
-
-// export interface Geo5 {
-//   city: string
-//   state_code: string
-//   slug_id: string
-//   neighborhood: string
-//   geo_type: string
-//   geo_statistics: GeoStatistics5
-// }
-
-// export interface GeoStatistics5 {
-//   housing_market: HousingMarket4
-// }
-
-// export interface HousingMarket4 {
-//   median_rent_price?: number
-// }

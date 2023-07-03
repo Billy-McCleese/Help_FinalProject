@@ -114,25 +114,6 @@ export class ApiService {
   deleteReview(id: number): Observable<any> {
     const url = `${this.url}/Review/${id}`;
     return this.http.delete(url);
-  }
-  // //Our API
-  // GetFavorites(): Observable<Favorite[]>{
-  //   return this.http.get<Favorite[]>(this.url + 'Favorite');
-  // }
-
-  // AddFavorite(favoriteToAdd: Favorite): Observable<Favorite[]>{
-  //   return this.http.post<Favorite[]>(this.url + 'Favorite', favoriteToAdd);
-  // }
-
-  // GetReviews(): Observable<Review[]>{
-  //   return this.http.get<Review[]>(this.url + 'Review');
-  // }
-
-  // AddReview(reviewToAdd: Review): Observable<Review[]>{
-  //   return this.http.post<Review[]>(this.url + 'Review', reviewToAdd);
-  // }
-
-  // GetUsers(): Observable<User[]>{
-  //   return this.http.get<User[]>(this.url + 'User');
-  // }
+  }  
+  
 }

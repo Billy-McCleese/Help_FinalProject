@@ -20,7 +20,6 @@ export class DashboardComponent implements OnInit {
   showModal: boolean = false;
 
   constructor(private apiService: ApiService, private modalService: NgbModal) {
-
     this.apiService.zip.subscribe( value => {
       this.getGetRentalDataByZip();
   });
@@ -28,8 +27,8 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.getGetRentalDataByZip(10001,10,0,'lowest_price'); //48188
-    this.getGetRentalDataByZip(); //48188
+   
+    this.getGetRentalDataByZip(); 
   }
 
   private getGetRentalDataByZip() {

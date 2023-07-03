@@ -18,7 +18,7 @@ import { NavigationEnd, Router } from '@angular/router';
   templateUrl: './realestatemap.component.html',
   styleUrls: ['./realestatemap.component.css'],
 })
-//export class RealestatemapComponent implements OnInit {
+
 export class RealestatemapComponent {
   @Input('properties') properties: RealEstate = {} as RealEstate;
   @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow = {} as MapInfoWindow;
