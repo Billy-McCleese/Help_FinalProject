@@ -27,6 +27,7 @@ import { FavoriteListComponent } from './favorite-list/favorite-list.component';
 import { ReviewFormComponent } from './review-form/review-form.component'; 
 import { FavoritesComponent } from './favorites/favorites.component';
 import { InputTextModule } from 'primeng/inputtext';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { InputTextModule } from 'primeng/inputtext';
     LogoutComponent,
     ReviewFormComponent,
     FavoriteListComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    ContactUsComponent
     
   ],
   imports: [
